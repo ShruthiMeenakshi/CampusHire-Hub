@@ -1,6 +1,4 @@
-// Inject includes (topbar, sidebar) and bootstrap dashboard data
 (async function init() {
-  // Helper: include loader
   async function loadIncludes() {
     const includeNodes = document.querySelectorAll('[data-include]');
     for (const node of includeNodes) {
@@ -18,7 +16,6 @@
 
   await loadIncludes();
 
-  // Sidebar toggle (after includes are in DOM)
   const sidebar = document.getElementById('sidebar');
   const btnToggle = document.getElementById('btn-toggle-sidebar');
   if (btnToggle) {
@@ -27,7 +24,6 @@
     });
   }
 
-  // Sample data (replace with API later)
   const data = {
     kpis: {
       placed: { value: 412, trend: '+12.3% vs last year' },
@@ -50,10 +46,10 @@
       { company: 'Accenture', role: 'ASE', date: '05 Feb 2026', ctc: '₹ 4.5 LPA', status: 'Upcoming' }
     ],
     applications: [
-      { student: 'Aditi S', company: 'Infosys', role: 'System Engineer', stage: 'HR Round', updated: 'Today' },
-      { student: 'Rahul K', company: 'TCS', role: 'Ninja', stage: 'Technical', updated: 'Yesterday' },
-      { student: 'Meera V', company: 'Wipro', role: 'Project Engineer', stage: 'Assessment', updated: '2 days ago' },
-      { student: 'Vivek P', company: 'Zoho', role: 'Developer', stage: 'Applied', updated: '2 days ago' }
+      { company: 'Infosys', role: 'System Engineer', stage: 'HR Round', updated: 'Today' },
+      { company: 'TCS', role: 'Ninja', stage: 'Technical', updated: 'Yesterday' },
+      { company: 'Wipro', role: 'Project Engineer', stage: 'Assessment', updated: '2 days ago' },
+      { company: 'Zoho', role: 'Developer', stage: 'Applied', updated: '2 days ago' }
     ],
     announcements: [
       { type: 'info', title: 'Mock Interviews', meta: 'CSE block, 23 Jan, 10AM-4PM' },
@@ -67,7 +63,6 @@
     ]
   };
 
-  // Fill KPIs
   const setText = (id, text) => { const el = document.getElementById(id); if (el) el.textContent = text; };
   setText('kpi-placed', data.kpis.placed.value);
   setText('kpi-placed-trend', data.kpis.placed.trend);
@@ -78,7 +73,6 @@
   setText('kpi-companies', data.kpis.companies.value);
   setText('kpi-companies-trend', data.kpis.companies.trend);
 
-  // Tables
   function td(text) { const d = document.createElement('td'); d.textContent = text; return d; }
   function badge(status) {
     const b = document.createElement('span');
@@ -107,7 +101,6 @@
   if (tbApps) {
     data.applications.forEach(row => {
       const tr = document.createElement('tr');
-      tr.append(td(row.student));
       tr.append(td(row.company));
       tr.append(td(row.role));
       tr.append(td(row.stage));
@@ -116,7 +109,6 @@
     });
   }
 
-  // Lists
   function renderList(id, items) {
     const ul = document.getElementById(id);
     if (!ul) return;
@@ -138,7 +130,6 @@
   renderList('list-announcements', data.announcements);
   renderList('list-events', data.events);
 
-  // Charts
   const trendCtx = document.getElementById('chartTrend');
   if (trendCtx && window.Chart) {
     new Chart(trendCtx, {

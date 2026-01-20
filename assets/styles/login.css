@@ -24,7 +24,6 @@ body {
     overflow: hidden;
 }
 
-/* Left Section - Login Form */
 .login-section {
     flex: 1;
     padding: 50px 40px;
@@ -162,7 +161,6 @@ body {
     text-decoration: underline;
 }
 
-/* Right Section - Welcome Panel */
 .welcome-section {
     flex: 1;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -188,7 +186,6 @@ body {
     line-height: 1.2;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .login-container {
         flex-direction: column;
