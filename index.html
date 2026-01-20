@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CampusHire Hub — Placement Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/styles/dashboard.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <aside id="sidebar" class="sidebar" data-include="includes/sidebar.html"></aside>
+
+        <div class="main">
+            <header id="topbar" class="topbar" data-include="includes/topbar.html"></header>
+
+            <main class="content">
+                <section class="cards" aria-label="Placement KPIs">
+                    <article class="card kpi">
+                        <div class="kpi-icon kpi-placed"><i class="ph ph-check-circle"></i></div>
+                        <div class="kpi-meta">
+                            <h3>Students Placed</h3>
+                            <p class="kpi-value" id="kpi-placed">—</p>
+                            <p class="kpi-trend positive" id="kpi-placed-trend">—</p>
+                        </div>
+                    </article>
+                    <article class="card kpi">
+                        <div class="kpi-icon kpi-ongoing"><i class="ph ph-briefcase"></i></div>
+                        <div class="kpi-meta">
+                            <h3>Ongoing Drives</h3>
+                            <p class="kpi-value" id="kpi-drives">—</p>
+                            <p class="kpi-trend" id="kpi-drives-trend">—</p>
+                        </div>
+                    </article>
+                    <article class="card kpi">
+                        <div class="kpi-icon kpi-package"><i class="ph ph-chart-line-up"></i></div>
+                        <div class="kpi-meta">
+                            <h3>Highest CTC</h3>
+                            <p class="kpi-value" id="kpi-ctc">—</p>
+                            <p class="kpi-trend positive" id="kpi-ctc-trend">—</p>
+                        </div>
+                    </article>
+                    <article class="card kpi">
+                        <div class="kpi-icon kpi-companies"><i class="ph ph-buildings"></i></div>
+                        <div class="kpi-meta">
+                            <h3>Hiring Companies</h3>
+                            <p class="kpi-value" id="kpi-companies">—</p>
+                            <p class="kpi-trend" id="kpi-companies-trend">—</p>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="grid-2">
+                    <article class="card">
+                        <div class="card-header">
+                            <h3>Placement Trend</h3>
+                            <button class="btn ghost" data-action="download-trend">Export</button>
+                        </div>
+                        <canvas id="chartTrend" height="140"></canvas>
+                    </article>
+                    <article class="card">
+                        <div class="card-header">
+                            <h3>Department-wise Placement</h3>
+                        </div>
+                        <canvas id="chartDept" height="140"></canvas>
+                    </article>
+                </section>
+
+                <section class="grid-2">
+                    <article class="card">
+                        <div class="card-header">
+                            <h3>Upcoming Drives</h3>
+                            <a class="btn link" href="#">View all</a>
+                        </div>
+                        <div class="table-wrap">
+                            <table class="table" id="table-drives">
+                                <thead>
+                                    <tr>
+                                        <th>Company</th>
+                                        <th>Role</th>
+                                        <th>Date</th>
+                                        <th>CTC</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-header">
+                            <h3>My Applications</h3>
+                            <a class="btn link" href="#">View all</a>
+                        </div>
+                        <div class="table-wrap">
+                            <table class="table" id="table-applications">
+                                <thead>
+                                    <tr>
+                                        <th>Company</th>
+                                        <th>Role</th>
+                                        <th>Stage</th>
+                                        <th>Updated</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="grid-2">
+                    <article class="card">
+                        <div class="card-header">
+                            <h3>Announcements</h3>
+                        </div>
+                        <ul class="list" id="list-announcements"></ul>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-header">
+                            <h3>Upcoming Events</h3>
+                        </div>
+                        <ul class="list" id="list-events"></ul>
+                    </article>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
