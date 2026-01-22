@@ -24,12 +24,46 @@
     });
   }
 
+  // Highlight active sidebar link based on current page
+  (function highlightActiveNav() {
+    const navLinks = sidebar ? sidebar.querySelectorAll('.nav-link') : [];
+    const path = window.location.pathname.replace(/\\/g, '/');
+    const current = path.split('/').pop(); // e.g., 'index.html' or 'profile-view.html'
+    navLinks.forEach(link => link.classList.remove('active'));
+    let matched = false;
+    navLinks.forEach(link => {
+      try {
+        const href = link.getAttribute('href');
+        if (!href) return;
+        // Only consider same-folder relative links
+        if (href.endsWith(current)) {
+          link.classList.add('active');
+          matched = true;
+        }
+      } catch (_) {}
+    });
+    if (!matched) {
+      // Fallback: index.html => Overview; profile-view.html/profile.html => Profile
+      const selector = current === 'profile-view.html'
+        ? 'a[href="profile-view.html"]'
+        : (current === 'profile.html' ? 'a[href="profile.html"]' : 'a[href="index.html"]');
+      const el = sidebar ? sidebar.querySelector(selector) : null;
+      if (el) el.classList.add('active');
+    }
+  })();
+
   // Topbar actions: settings and logout
   const btnSettings = document.getElementById('btn-settings');
   if (btnSettings) {
     btnSettings.addEventListener('click', () => {
       // Placeholder: open settings. Can be wired to a real page.
       console.log('Settings clicked');
+    });
+  }
+  const btnProfile = document.getElementById('btn-profile');
+  if (btnProfile) {
+    btnProfile.addEventListener('click', () => {
+      window.location.href = 'profile-view.html';
     });
   }
   const btnLogout = document.getElementById('btn-logout');

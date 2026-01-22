@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampusHire Hub — Student Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles/dashboard.css" />
+  <link rel="stylesheet" href="assets/styles/profile.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar" class="sidebar" data-include="includes/sidebar.html"></aside>
+
+    <div class="main">
+      <header id="topbar" class="topbar" data-include="includes/topbar.html"></header>
+
+      <main class="content">
+        <article class="card">
+          <div class="card-header">
+            <h3>Student Profile</h3>
+            <span class="muted">Update your personal and academic details</span>
+          </div>
+          <form id="profileForm" class="form-grid" autocomplete="on">
+            <div class="form-field">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" placeholder="e.g., Priya Sharma" required />
+            </div>
+            <div class="form-field">
+              <label for="studentId">Student ID / Roll No.</label>
+              <input type="text" id="studentId" name="studentId" placeholder="e.g., VCET2023CSE123" required />
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="e.g., priya@vcet.edu" required />
+            </div>
+            <div class="form-field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="e.g., 9876543210" pattern="[0-9]{10}" required />
+            </div>
+
+            <div class="form-field">
+              <label for="department">Department</label>
+              <select id="department" name="department" required>
+                <option value="">Select department</option>
+                <option>CSE</option>
+                <option>IT</option>
+                <option>ECE</option>
+                <option>EEE</option>
+                <option>ME</option>
+                <option>CE</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="program">Program</label>
+              <select id="program" name="program" required>
+                <option value="">Select program</option>
+                <option>B.Tech</option>
+                <option>M.Tech</option>
+                <option>MCA</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="year">Year</label>
+              <select id="year" name="year" required>
+                <option value="">Select year</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="cgpa">CGPA</label>
+              <input type="number" id="cgpa" name="cgpa" min="0" max="10" step="0.01" placeholder="e.g., 8.45" />
+            </div>
+
+            <div class="form-field col-span-2">
+              <label for="skills">Skills</label>
+              <input type="text" id="skills" name="skills" placeholder="e.g., Java, Python, React, SQL" />
+            </div>
+
+            <div class="form-field">
+              <label for="resumeUrl">Resume URL</label>
+              <input type="url" id="resumeUrl" name="resumeUrl" placeholder="e.g., https://drive.google.com/..." />
+            </div>
+            <div class="form-field">
+              <label for="portfolioUrl">Portfolio URL</label>
+              <input type="url" id="portfolioUrl" name="portfolioUrl" placeholder="e.g., https://priya.dev" />
+            </div>
+
+            <div class="form-field col-span-2">
+              <label for="linkedinUrl">LinkedIn URL</label>
+              <input type="url" id="linkedinUrl" name="linkedinUrl" placeholder="e.g., https://www.linkedin.com/in/yourhandle" />
+            </div>
+            <div class="form-field col-span-2">
+              <label for="githubUrl">GitHub URL</label>
+              <input type="url" id="githubUrl" name="githubUrl" placeholder="e.g., https://github.com/yourhandle" />
+            </div>
+            <div class="form-field col-span-2">
+              <label for="leetcodeUrl">LeetCode URL</label>
+              <input type="url" id="leetcodeUrl" name="leetcodeUrl" placeholder="e.g., https://leetcode.com/yourhandle" />
+            </div>
+
+            <div class="form-actions col-span-2">
+              <button type="submit" class="btn ghost save-btn"><i class="ph ph-floppy-disk"></i><span>Save Profile</span></button>
+              <button type="reset" class="btn ghost"><i class="ph ph-arrow-counter-clockwise"></i><span>Reset</span></button>
+              <button type="button" class="btn ghost" id="btn-overview"><i class="ph ph-gauge"></i><span>Go to Overview</span></button>
+            </div>
+          </form>
+        </article>
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/dashboard.js"></script>
+  <script src="assets/js/profile.js"></script>
+</body>
+</html>

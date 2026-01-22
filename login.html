@@ -51,3 +51,19 @@
     </div>
 </body>
 </html>
+<script>
+    // Lightweight client-side login redirect to student profile
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById('loginForm');
+        if (!form) return;
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var email = document.getElementById('email')?.value || '';
+            // Persist email for prefill on profile page
+            try { localStorage.setItem('ch_email', email); } catch (_) {}
+            // Redirect to student profile
+            window.location.href = 'student/profile.html';
+        });
+    });
+</script>
+</html>
