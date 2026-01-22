@@ -43,9 +43,7 @@ body {
 .search { display: flex; align-items: center; gap: 10px; border: 1px solid var(--border); background: var(--panel); padding: 0 12px; height: 38px; border-radius: 10px; flex: 1; max-width: 680px; }
 .search input { flex: 1; background: transparent; border: none; outline: none; color: var(--text); }
 .actions { display: flex; align-items: center; gap: 12px; }
-.actions .logout-btn { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--border); background: transparent; color: var(--muted); }
-.actions .logout-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
-.user { display: flex; align-items: center; gap: 10px; background: var(--panel); border: 1px solid var(--border); padding: 4px 8px; border-radius: 12px; }
+.user { display: flex; align-items: center; gap: 10px; background: var(--panel); border: 1px solid var(--border); padding: 4px 8px; border-radius: 12px; text-decoration: none; color: inherit; }
 .user img { height: 32px; width: 32px; border-radius: 50%; }
 .user .meta { display: flex; flex-direction: column; line-height: 1; }
 .user .name { font-size: 13px; }
