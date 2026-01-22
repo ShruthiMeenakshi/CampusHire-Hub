@@ -24,22 +24,6 @@
     });
   }
 
-  // Topbar actions: settings and logout
-  const btnSettings = document.getElementById('btn-settings');
-  if (btnSettings) {
-    btnSettings.addEventListener('click', () => {
-      // Placeholder: open settings. Can be wired to a real page.
-      console.log('Settings clicked');
-    });
-  }
-  const btnLogout = document.getElementById('btn-logout');
-  if (btnLogout) {
-    btnLogout.addEventListener('click', () => {
-      // Simple logout redirect. Replace with auth clear if needed.
-      window.location.href = '../login.html';
-    });
-  }
-
   const data = {
     kpis: {
       placed: { value: 412, trend: '+12.3% vs last year' },
