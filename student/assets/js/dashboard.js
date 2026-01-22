@@ -146,6 +146,14 @@
   renderList('list-announcements', data.announcements);
   renderList('list-events', data.events);
 
+  // Make events list clickable to navigate to events page
+  const eventsUl = document.getElementById('list-events');
+  if (eventsUl) {
+    eventsUl.addEventListener('click', () => {
+      window.location.href = 'events.html';
+    });
+  }
+
   const trendCtx = document.getElementById('chartTrend');
   if (trendCtx && window.Chart) {
     new Chart(trendCtx, {
