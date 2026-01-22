@@ -52,16 +52,14 @@
                 <option>ECE</option>
                 <option>EEE</option>
                 <option>ME</option>
-                <option>CE</option>
               </select>
             </div>
             <div class="form-field">
-              <label for="program">Program</label>
-              <select id="program" name="program" required>
-                <option value="">Select program</option>
+              <label for="degree">Degree</label>
+              <select id="degree" name="degree" required>
+                <option value="">Select degree</option>
                 <option>B.Tech</option>
                 <option>M.Tech</option>
-                <option>MCA</option>
               </select>
             </div>
 
@@ -105,6 +103,154 @@
             <div class="form-field col-span-2">
               <label for="leetcodeUrl">LeetCode URL</label>
               <input type="url" id="leetcodeUrl" name="leetcodeUrl" placeholder="e.g., https://leetcode.com/yourhandle" />
+            </div>
+
+            <!-- Placement Registration Additional Fields -->
+            <div class="form-field">
+              <label for="dateOfBirth">Date of Birth</label>
+              <input type="date" id="dateOfBirth" name="dateOfBirth" required />
+            </div>
+            <div class="form-field">
+              <label for="gender">Gender</label>
+              <select id="gender" name="gender" required>
+                <option value="">Select gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+                <option>Prefer not to say</option>
+              </select>
+            </div>
+            
+            <div class="form-field">
+              <label for="residential status">Residential Status</label>
+              <select id="residential status" name="residential status" required>
+                <option value="">Select residential status</option>
+                <option>Hosteller</option>
+                <option>Day Scholar</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="Community">Community</label>
+              <select id="Community" name="community" required>
+                <option value="">Select community</option>
+                <option>General</option>
+                <option>OBC</option>
+                <option>SC</option>
+                <option>ST</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="nationality">Nationality</label>
+              <input type="text" id="nationality" name="nationality" placeholder="e.g., Indian" />
+            </div>
+
+            <div class="form-field">
+              <label for="tenthPercentage">10th Percentage</label>
+              <input type="number" id="tenthPercentage" name="tenthPercentage" min="0" max="100" step="0.01" placeholder="e.g., 85.5" />
+            </div>
+            <div class="form-field">
+              <label for="twelfthPercentage">12th Percentage</label>
+              <input type="number" id="twelfthPercentage" name="twelfthPercentage" min="0" max="100" step="0.01" placeholder="e.g., 88.0" />
+            </div>
+
+            <div class="form-field">
+              <label for="backlogs">Current Backlogs</label>
+              <input type="number" id="backlogs" name="backlogs" min="0" step="1" placeholder="e.g., 0" />
+            </div>
+            <div class="form-field">
+              <label for="pastBacklogs">Past Backlogs</label>
+              <input type="number" id="pastBacklogs" name="pastBacklogs" min="0" step="1" placeholder="e.g., 2" />
+            </div>
+
+            <div class="form-field col-span-2">
+              <label for="address">Address</label>
+              <textarea id="address" name="address" placeholder="e.g., 123 Main Street, City, State, Postal Code" rows="3"></textarea>
+            </div>
+
+            <div class="form-field">
+              <label for="city">City</label>
+              <input type="text" id="city" name="city" placeholder="e.g., Pune" />
+            </div>
+            <div class="form-field">
+              <label for="state">State</label>
+              <input type="text" id="state" name="state" placeholder="e.g., Maharashtra" />
+            </div>
+
+            <div class="form-field">
+              <label for="pincode">Pincode</label>
+              <input type="text" id="pincode" name="pincode" placeholder="e.g., 411001" pattern="[0-9]{6}" />
+            </div>
+            <div class="form-field">
+              <label for="fatherName">Father's Name</label>
+              <input type="text" id="fatherName" name="fatherName" placeholder="e.g., Mr. Sharma" />
+            </div>
+
+            <div class="form-field">
+              <label for="motherName">Mother's Name</label>
+              <input type="text" id="motherName" name="motherName" placeholder="e.g., Mrs. Sharma" />
+            </div>
+            <div class="form-field">
+              <label for="emergencyContact">Emergency Contact</label>
+              <input type="tel" id="emergencyContact" name="emergencyContact" placeholder="e.g., 9876543210" pattern="[0-9]{10}" />
+            </div>
+
+            <div class="form-field col-span-2">
+              <label for="emergencyContactName">Emergency Contact Person Name</label>
+              <input type="text" id="emergencyContactName" name="emergencyContactName" placeholder="e.g., Relative's Name" />
+            </div>
+
+            <!-- Sibling Details -->
+            <div class="form-field">
+              <label for="numberOfSiblings">Number of Siblings</label>
+              <input type="number" id="numberOfSiblings" name="numberOfSiblings" min="0" step="1" placeholder="e.g., 2" />
+            </div>
+            <div class="form-field">
+              <label for="siblingDetails">Sibling Details</label>
+              <input type="text" id="siblingDetails" name="siblingDetails" placeholder="e.g., Brother (22), Sister (20)" />
+            </div>
+
+            <div class="form-field">
+              <label for="aadharNumber">Aadhar Number</label>
+              <input type="text" id="aadharNumber" name="aadharNumber" placeholder="e.g., XXXX XXXX XXXX" pattern="[0-9X ]{14}" />
+            </div>
+            <div class="form-field">
+              <label for="panNumber">PAN Number</label>
+              <input type="text" id="panNumber" name="panNumber" placeholder="e.g., ABCDE1234F" pattern="[A-Z]{5}[0-9]{4}[A-Z]" />
+            </div>
+            <div class="form-field">
+              <label for="passportNumber">Passport Number</label>
+              <input type="text" id="passportNumber" name="passportNumber" placeholder="e.g., A12345678" pattern="[A-Z0-9]{9}" />
+            </div>
+            <div class="form-field">
+              <label for="rationCard">Ration Card Number</label>
+              <input type="text" id="rationCard" name="rationCard" placeholder="e.g., R1234567890" />
+            </div>
+
+            <div class="form-field col-span-2">
+              <label for="aggregateMarks">Aggregate Marks / Percentage</label>
+              <input type="text" id="aggregateMarks" name="aggregateMarks" placeholder="e.g., 75% or 7.5 CGPA" />
+            </div>
+
+            <!-- Placement Interest -->
+            <div class="form-field">
+              <label for="placementInterested">Interested in Placement</label>
+              <select id="placementInterested" name="placementInterested" required>
+                <option value="">Select option</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="placementReason">If Not Interested, Reason</label>
+              <input type="text" id="placementReason" name="placementReason" placeholder="e.g., Pursuing further studies, Already placed, etc." />
+            </div>
+
+            <div class="form-field col-span-2">
+              <label>
+                <input type="checkbox" id="agreeToTerms" name="agreeToTerms" required />
+                <span>I agree to the placement registration terms and conditions</span>
+              </label>
             </div>
 
             <div class="form-actions col-span-2">

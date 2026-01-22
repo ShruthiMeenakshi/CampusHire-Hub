@@ -18,6 +18,16 @@
 
   await loadIncludes();
 
+  // Highlight active nav link (Drives)
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+  });
+  const drivesLink = Array.from(navLinks).find(link => link.getAttribute('href') === 'drives.html');
+  if (drivesLink) {
+    drivesLink.classList.add('active');
+  }
+
   // Setup sidebar toggle
   const sidebar = document.getElementById('sidebar');
   const btnToggle = document.getElementById('btn-toggle-sidebar');
