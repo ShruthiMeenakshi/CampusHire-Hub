@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Applications — CampusHire Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/styles/dashboard.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+</head>
+<body>
+    <div id="app">
+        <aside id="sidebar" class="sidebar" data-include="includes/sidebar.html"></aside>
+
+        <div class="main">
+            <header id="topbar" class="topbar" data-include="includes/topbar.html"></header>
+
+            <main class="content">
+                <!-- PAGE HEADER -->
+                <div class="card-header">
+                    <h2>My Applications</h2>
+                    <span class="badge info" id="total-applications">Total Applied: 6</span>
+                </div>
+
+                <!-- APPLICATIONS CARDS -->
+                <div class="applications-grid" id="applications-grid"></div>
+            </main>
+        </div>
+    </div>
+
+    <script src="assets/js/applications.js"></script>
+</body>
+</html>
