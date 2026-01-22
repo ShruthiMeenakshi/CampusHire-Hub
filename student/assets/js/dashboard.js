@@ -24,6 +24,47 @@
     });
   }
 
+  // Logout handler: clear session/localStorage (preserve theme) and redirect
+  (function bindLogout() {
+    const btnLogout = document.getElementById('btn-logout');
+    if (!btnLogout) return;
+    btnLogout.addEventListener('click', () => {
+      const theme = localStorage.getItem('ch_theme');
+      try { localStorage.clear(); } catch (_) {}
+      if (theme) { try { localStorage.setItem('ch_theme', theme); } catch (_) {} }
+      window.location.href = '../login.html';
+    });
+  })();
+
+  // Theme toggling
+  (function themeInit() {
+    const root = document.documentElement;
+    const btnTheme = document.getElementById('btn-theme');
+    const icon = btnTheme ? btnTheme.querySelector('i') : null;
+    const saved = localStorage.getItem('ch_theme');
+    if (saved === 'light') root.setAttribute('data-theme', 'light');
+    function isLight() { return root.getAttribute('data-theme') === 'light'; }
+    function syncIcon() {
+      if (!icon) return;
+      icon.className = isLight() ? 'ph ph-sun' : 'ph ph-moon';
+    }
+    syncIcon();
+    if (btnTheme) {
+      btnTheme.addEventListener('click', () => {
+        if (isLight()) {
+          root.removeAttribute('data-theme');
+          localStorage.setItem('ch_theme', 'dark');
+        } else {
+          root.setAttribute('data-theme', 'light');
+          localStorage.setItem('ch_theme', 'light');
+        }
+        syncIcon();
+        // Update chart colors on theme switch
+        try { refreshChartsTheme(); } catch (_) {}
+      });
+    }
+  })();
+
   const data = {
     kpis: {
       placed: { value: 412, trend: '+12.3% vs last year' },
@@ -138,28 +179,41 @@
     });
   }
 
+  // Helpers to read CSS variables for theming
+  function cssVar(name) {
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  }
+  function gridColor() {
+    return document.documentElement.getAttribute('data-theme') === 'light'
+      ? 'rgba(15,23,42,0.08)'
+      : 'rgba(255,255,255,0.06)';
+  }
+
+  let chartTrendInstance = null;
+  let chartDeptInstance = null;
+
   const trendCtx = document.getElementById('chartTrend');
   if (trendCtx && window.Chart) {
-    new Chart(trendCtx, {
+    chartTrendInstance = new Chart(trendCtx, {
       type: 'line',
       data: {
         labels: data.trend.labels,
         datasets: [{
           label: 'Students Placed',
           data: data.trend.values,
-          borderColor: '#5b8cff',
+          borderColor: cssVar('--primary') || '#5b8cff',
           tension: 0.35,
           fill: false,
           pointRadius: 3,
-          pointBackgroundColor: '#5b8cff'
+          pointBackgroundColor: cssVar('--primary') || '#5b8cff'
         }]
       },
       options: {
         responsive: true,
         plugins: { legend: { display: false } },
         scales: {
-          x: { grid: { color: 'rgba(255,255,255,0.06)' }, ticks: { color: '#9aa4c7' } },
-          y: { grid: { color: 'rgba(255,255,255,0.06)' }, ticks: { color: '#9aa4c7' } }
+          x: { grid: { color: gridColor() }, ticks: { color: cssVar('--muted') || '#9aa4c7' } },
+          y: { grid: { color: gridColor() }, ticks: { color: cssVar('--muted') || '#9aa4c7' } }
         }
       }
     });
@@ -167,14 +221,14 @@
 
   const deptCtx = document.getElementById('chartDept');
   if (deptCtx && window.Chart) {
-    new Chart(deptCtx, {
+    chartDeptInstance = new Chart(deptCtx, {
       type: 'bar',
       data: {
         labels: data.dept.labels,
         datasets: [{
           label: 'Placed',
           data: data.dept.values,
-          backgroundColor: '#2cc88d',
+          backgroundColor: cssVar('--success') || '#2cc88d',
           borderRadius: 6
         }]
       },
@@ -182,10 +236,31 @@
         responsive: true,
         plugins: { legend: { display: false } },
         scales: {
-          x: { grid: { display: false }, ticks: { color: '#9aa4c7' } },
-          y: { grid: { color: 'rgba(255,255,255,0.06)' }, ticks: { color: '#9aa4c7' } }
+          x: { grid: { display: false }, ticks: { color: cssVar('--muted') || '#9aa4c7' } },
+          y: { grid: { color: gridColor() }, ticks: { color: cssVar('--muted') || '#9aa4c7' } }
         }
       }
     });
+  }
+
+  function refreshChartsTheme() {
+    if (chartTrendInstance) {
+      const ds = chartTrendInstance.data.datasets[0];
+      ds.borderColor = cssVar('--primary') || '#5b8cff';
+      ds.pointBackgroundColor = cssVar('--primary') || '#5b8cff';
+      chartTrendInstance.options.scales.x.grid.color = gridColor();
+      chartTrendInstance.options.scales.y.grid.color = gridColor();
+      chartTrendInstance.options.scales.x.ticks.color = cssVar('--muted') || '#9aa4c7';
+      chartTrendInstance.options.scales.y.ticks.color = cssVar('--muted') || '#9aa4c7';
+      chartTrendInstance.update();
+    }
+    if (chartDeptInstance) {
+      const ds = chartDeptInstance.data.datasets[0];
+      ds.backgroundColor = cssVar('--success') || '#2cc88d';
+      chartDeptInstance.options.scales.y.grid.color = gridColor();
+      chartDeptInstance.options.scales.x.ticks.color = cssVar('--muted') || '#9aa4c7';
+      chartDeptInstance.options.scales.y.ticks.color = cssVar('--muted') || '#9aa4c7';
+      chartDeptInstance.update();
+    }
   }
 })();

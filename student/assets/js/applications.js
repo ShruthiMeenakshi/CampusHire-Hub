@@ -340,7 +340,8 @@
     rounds.forEach((round, index) => {
       const step = createElement('div', 'progress-step');
       const dot = createElement('div', 'progress-dot');
-      step.appendChild(dot);
+      const label = createElement('div', 'progress-label', round.name);
+      step.append(dot, label);
 
       if (round.status === 'completed') {
         step.classList.add('completed');
@@ -528,7 +529,8 @@
 
     const expandBtn = createElement('button', 'expand-btn');
     const expandIcon = createElement('i', 'ph ph-caret-down');
-    expandBtn.appendChild(expandIcon);
+    const expandText = createElement('span', '', 'Details');
+    expandBtn.append(expandIcon, expandText);
     expandBtn.addEventListener('click', () => {
       card.classList.toggle('expanded');
       expandIcon.className = card.classList.contains('expanded') ? 'ph ph-caret-up' : 'ph ph-caret-down';
