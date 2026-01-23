@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>CampusHire Hub — Statistics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/styles/stats.css" />
+    <link rel="stylesheet" href="assets/styles/dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+<div id="app">
+
+    <!-- SIDEBAR (same include as dashboard) -->
+    <aside class="sidebar" data-include="includes/sidebar.html"></aside>
+
+    <div class="main">
+        <header class="topbar" data-include="includes/topbar.html"></header>
+
+        <main class="content">
+
+            <h1 class="page-title">Placement Statistics</h1>
+
+            <!-- KPI CARDS -->
+            <section class="kpi-grid">
+                <div class="kpi-card">
+                    <span>Total Students</span>
+                    <h2 id="totalStudents">0</h2>
+                </div>
+                <div class="kpi-card">
+                    <span>Students Placed</span>
+                    <h2 id="studentsPlaced">0</h2>
+                    <small id="placementPercent">0%</small>
+                </div>
+                <div class="kpi-card">
+                    <span>Total Companies</span>
+                    <h2 id="totalCompanies">0</h2>
+                </div>
+                <div class="kpi-card">
+                    <span>Total Offers</span>
+                    <h2 id="totalOffers">0</h2>
+                </div>
+                <div class="kpi-card">
+                    <span>Avg CTC (LPA)</span>
+                    <h2 id="avgSalary">0</h2>
+                </div>
+                <div class="kpi-card">
+                    <span>Highest CTC (LPA)</span>
+                    <h2 id="maxSalary">0</h2>
+                </div>
+            </section>
+
+            <!-- CHARTS -->
+            <section class="charts">
+                <div class="chart-box">
+                    <h3>Placement Status</h3>
+                    <canvas id="placementChart"></canvas>
+                </div>
+
+                <div class="chart-box">
+                    <h3>Salary Package Distribution (%)</h3>
+                    <canvas id="salaryChart"></canvas>
+                </div>
+
+                <div class="chart-box">
+                    <h3>Company-wise Offers</h3>
+                    <canvas id="companyChart"></canvas>
+                </div>
+
+                <div class="chart-box">
+                    <h3>Department-wise Offers</h3>
+                    <canvas id="deptChart"></canvas>
+                </div>
+
+                <div class="chart-box">
+                    <h3>Students by Offer Count (%)</h3>
+                    <canvas id="offerCountChart"></canvas>
+                </div>
+            </section>
+
+        </main>
+    </div>
+</div>
+<script src="assets/js/stats.js"></script>
+<script src="assets/js/dashboard.js"></script>
+
+</body>
+</html>

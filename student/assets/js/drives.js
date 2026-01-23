@@ -17,6 +17,44 @@
   }
 
   await loadIncludes();
+  // Logout handler: clear session/localStorage (preserve theme) and redirect
+  (function bindLogout() {
+    const btnLogout = document.getElementById('btn-logout');
+    if (!btnLogout) return;
+    btnLogout.addEventListener('click', () => {
+      const theme = localStorage.getItem('ch_theme');
+      try { localStorage.clear(); } catch (_) {}
+      if (theme) { try { localStorage.setItem('ch_theme', theme); } catch (_) {} }
+      window.location.href = '../login.html';
+    });
+  })();
+
+  // Theme toggling (light/dark) for drives page
+  (function themeInit() {
+    const root = document.documentElement;
+    const btnTheme = document.getElementById('btn-theme');
+    const icon = btnTheme ? btnTheme.querySelector('i') : null;
+    const saved = localStorage.getItem('ch_theme');
+    if (saved === 'light') root.setAttribute('data-theme', 'light');
+    function isLight() { return root.getAttribute('data-theme') === 'light'; }
+    function syncIcon() {
+      if (!icon) return;
+      icon.className = isLight() ? 'ph ph-sun' : 'ph ph-moon';
+    }
+    syncIcon();
+    if (btnTheme) {
+      btnTheme.addEventListener('click', () => {
+        if (isLight()) {
+          root.removeAttribute('data-theme');
+          localStorage.setItem('ch_theme', 'dark');
+        } else {
+          root.setAttribute('data-theme', 'light');
+          localStorage.setItem('ch_theme', 'light');
+        }
+        syncIcon();
+      });
+    }
+  })();
 
   // Highlight active nav link (Drives)
   const navLinks = document.querySelectorAll('.nav-link');
