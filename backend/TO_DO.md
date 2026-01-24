@@ -29,18 +29,7 @@ Tech Stack: **Spring Boot · PostgreSQL · Docker · JWT Security**
 
 ---
 
-## 🔐 Phase 2: Authentication & Authorization (RBAC)
 
-* [ ] Design User entity (Student / Faculty / Placement Head)
-* [ ] Implement JWT-based authentication
-* [ ] Password encryption (BCrypt)
-* [ ] Role-Based Access Control
-* [ ] Login API
-* [ ] Logout / Token invalidation
-* [ ] Secure APIs with Spring Security filters
-* [ ] Access control per role
-
----
 
 ## 👨‍🎓 Phase 3: Student Management Module
 
@@ -180,7 +169,18 @@ Tech Stack: **Spring Boot · PostgreSQL · Docker · JWT Security**
 * [ ] Monitoring & logs
 
 ---
+## 🔐 Phase 2: Authentication & Authorization (RBAC)
 
+* [ ] Design User entity (Student / Faculty / Placement Head)
+* [ ] Implement JWT-based authentication
+* [ ] Password encryption (BCrypt)
+* [ ] Role-Based Access Control
+* [ ] Login API
+* [ ] Logout / Token invalidation
+* [ ] Secure APIs with Spring Security filters
+* [ ] Access control per role
+
+---
 ## ✔️ Completion Criteria
 
 * All APIs secured and tested
