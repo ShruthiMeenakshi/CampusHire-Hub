@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Velammal College of Engineering and Technology (VCET)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0b1020;
+        --panel: #121735;
+        --panel-2: #0f1430;
+        --text: #e9eefc;
+        --muted: #b9c2e6;
+        --brand: #3b82f6;
+        --brand-dark: #2563eb;
+        --accent: #10b981;
+        --danger: #ef4444;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        background: radial-gradient(1200px 600px at 10% -10%, #182048 10%, var(--bg) 50%);
+        color: var(--text);
+      }
+      a { color: inherit; text-decoration: none; }
+      .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+      /* Header */
+      header {
+        position: sticky; top: 0; z-index: 20;
+        backdrop-filter: saturate(180%) blur(10px);
+        background: rgba(12, 16, 34, 0.7);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .header-inner {
+        display: flex; align-items: center; justify-content: space-between;
+        height: 72px;
+      }
+      .brand {
+        display: flex; align-items: center; gap: 12px; font-weight: 700;
+      }
+      .brand-logo {
+        height: 40px;
+        width: 40px;
+        object-fit: cover;
+        display: block;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+      .brand-text { display: flex; flex-direction: column; }
+      .brand-title { font-size: 16px; font-weight: 700; }
+      .brand-subtitle { font-size: 12px; color: var(--muted); }
+      /* Navigation */
+      nav { display: none; gap: 18px; }
+      nav a { color: var(--muted); font-weight: 500; }
+      nav a:hover { color: var(--text); }
+      .menu-toggle {
+        display: inline-flex; align-items: center; justify-content: center;
+        height: 40px; width: 40px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(255,255,255,0.04); color: var(--text);
+      }
+      .menu-toggle:hover { border-color: rgba(255,255,255,0.25); }
+      .nav-mobile {
+        position: absolute; right: 24px; top: 72px; z-index: 10;
+        display: none; flex-direction: column; gap: 8px;
+        background: var(--panel-2); border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 12px; padding: 12px; box-shadow: var(--shadow);
+      }
+      .nav-mobile a { padding: 8px 10px; border-radius: 8px; }
+      .nav-mobile a:hover { background: rgba(255,255,255,0.06); }
+      .nav-mobile.show { display: flex; }
+      .actions { display: flex; align-items: center; gap: 12px; }
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center;
+        height: 40px; padding: 0 16px; border-radius: 10px; font-weight: 600;
+        border: 1px solid rgba(255,255,255,0.12); color: var(--text);
+        background: transparent;
+      }
+      .btn:hover { border-color: rgba(255,255,255,0.25); }
+      .btn-primary {
+        background: var(--brand); border-color: var(--brand-dark);
+        color: #fff; box-shadow: var(--shadow);
+      }
+      .btn-primary:hover { background: var(--brand-dark); }
+      .login { margin-left: 4px; }
+      /* Hero */
+      .hero {
+        position: relative; overflow: hidden;
+        padding: 64px 0 40px;
+        background:
+          radial-gradient(600px 280px at 90% -20%, rgba(59,130,246,0.15), transparent 60%),
+          radial-gradient(800px 360px at -10% 10%, rgba(16,185,129,0.12), transparent 60%);
+      }
+      .hero h1 {
+        font-size: clamp(28px, 5vw, 48px); line-height: 1.1; margin: 0 0 14px;
+      }
+      .hero p { color: var(--muted); font-size: clamp(16px, 2.2vw, 18px); margin: 0 0 20px; }
+      .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+      .hero-card {
+        margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+      }
+      .panel {
+        background: linear-gradient(180deg, var(--panel), var(--panel-2));
+        border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 18px;
+      }
+      .panel h3 { margin: 0 0 10px; font-size: 18px; }
+      .panel p { margin: 0; color: var(--muted); }
+      .panel, .card { transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
+      .panel:hover, .card:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.16); box-shadow: var(--shadow); }
+      /* Sections */
+      section { padding: 40px 0; }
+      .section-title {
+        font-size: 24px; margin: 0 0 18px; display: flex; align-items: center; gap: 10px;
+      }
+      .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+      .grid { display: grid; gap: 16px; }
+      .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+      .grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+      .card { background: var(--panel-2); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 16px; }
+      .card h4 { margin: 0 0 8px; font-size: 16px; }
+      .muted { color: var(--muted); }
+      .stats {
+        display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+        margin-top: 24px;
+      }
+      .stat {
+        background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 12px; padding: 12px; text-align: center;
+      }
+      .stat-title { font-size: 12px; color: var(--muted); }
+      .stat-value { font-size: 18px; font-weight: 700; }
+      /* Footer */
+      footer {
+        border-top: 1px solid rgba(255,255,255,0.08);
+        background: rgba(12, 16, 34, 0.6);
+        padding: 28px 0;
+      }
+      .footer-inner { display: grid; gap: 14px; }
+      .footer-meta { display: flex; flex-wrap: wrap; gap: 12px; color: var(--muted); font-size: 14px; }
+      /* Responsive */
+      @media (min-width: 860px) {
+        nav { display: flex; }
+        .menu-toggle { display: none; }
+        .nav-mobile { display: none !important; }
+      }
+      @media (max-width: 859px) {
+        .hero-card { grid-template-columns: 1fr; }
+        .grid.cols-3, .grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (max-width: 560px) {
+        .grid.cols-3, .grid.cols-4 { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container header-inner">
+        <div class="brand">
+          <img src="media/vcetLogo.jpg" alt="VCET Logo" class="brand-logo" />
+          <div class="brand-text">
+            <div class="brand-title">Velammal College of Engineering and Technology</div>
+            <div class="brand-subtitle">Madurai, Tamil Nadu</div>
+          </div>
+        </div>
+        <nav>
+          <a href="#home">Home</a>
+          <a href="#academics">Academics</a>
+          <a href="#departments">Departments</a>
+          <a href="#admissions">Admissions</a>
+          <a href="#placements">Placements</a>
+          <a href="#research">Research</a>
+          <a href="#campus">Campus Life</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="actions">
+          <a class="btn" href="#admissions">Apply</a>
+          <a class="btn btn-primary login" href="/login.html">Login</a>
+          <button class="menu-toggle" aria-label="Toggle menu" id="menuBtn">☰</button>
+        </div>
+        <div class="nav-mobile" id="mobileNav" aria-label="Mobile navigation">
+          <a href="#home">Home</a>
+          <a href="#academics">Academics</a>
+          <a href="#departments">Departments</a>
+          <a href="#admissions">Admissions</a>
+          <a href="#placements">Placements</a>
+          <a href="#research">Research</a>
+          <a href="#campus">Campus Life</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="home" class="hero">
+      <div class="container">
+        <h1>Empowering Engineers and Innovators</h1>
+        <p>
+          VCET fosters a culture of learning, research, and industry collaboration—preparing students
+          to build solutions that matter.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#admissions">Explore Admissions</a>
+          <a class="btn" href="#departments">View Departments</a>
+        </div>
+
+        <div class="hero-card">
+          <div class="panel">
+            <h3>Academics</h3>
+            <p>Outcome-based curriculum, modern labs, and mentor-led learning across engineering streams.</p>
+          </div>
+          <div class="panel">
+            <h3>Industry & Careers</h3>
+            <p>Strong placement support, internships, and partnerships to launch meaningful careers.</p>
+          </div>
+        </div>
+
+        <div class="stats" aria-label="Quick facts">
+          <div class="stat">
+            <div class="stat-title">Accredited Programs</div>
+            <div class="stat-value">Quality & Excellence</div>
+          </div>
+          <div class="stat">
+            <div class="stat-title">Career Support</div>
+            <div class="stat-value">Training & Mentorship</div>
+          </div>
+          <div class="stat">
+            <div class="stat-title">Research Culture</div>
+            <div class="stat-value">Innovation Focus</div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <section id="academics">
+      <div class="container">
+        <div class="section-title"><span class="dot"></span> Academics</div>
+      </div>
+      <div class="container grid cols-3">
+        <div class="card">
+          <h4>Undergraduate Programs</h4>
+          <p class="muted">Core engineering disciplines with hands-on projects and modern labs.</p>
+        </div>
+        <div class="card">
+          <h4>Postgraduate Programs</h4>
+          <p class="muted">Advanced coursework and research opportunities with faculty mentorship.</p>
+        </div>
+        <div class="card">
+          <h4>Research & Innovation</h4>
+          <p class="muted">Centers of excellence, publications, and industry-focused innovation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="departments">
+      <div class="container">
+        <div class="section-title"><span class="dot"></span> Departments</div>
+      </div>
+      <div class="container grid cols-4">
+        <div class="card"><h4>Computer Science & Engineering</h4><p class="muted">Software systems, AI, and data.</p></div>
+        <div class="card"><h4>Electronics & Communication</h4><p class="muted">VLSI, embedded, and networks.</p></div>
+        <div class="card"><h4>Electrical & Electronics</h4><p class="muted">Power systems and automation.</p></div>
+        <div class="card"><h4>Mechanical Engineering</h4><p class="muted">Design, manufacturing, and thermal.</p></div>
+        <div class="card"><h4>Civil Engineering</h4><p class="muted">Structures, environment, and planning.</p></div>
+        <div class="card"><h4>Information Technology</h4><p class="muted">Systems, security, and web tech.</p></div>
+        <div class="card"><h4>Science & Humanities</h4><p class="muted">Foundations in maths, physics, and communication.</p></div>
+        <div class="card"><h4>Management Studies</h4><p class="muted">Business and leadership basics.</p></div>
+      </div>
+    </section>
+
+    <section id="admissions">
+      <div class="container">
+        <div class="section-title"><span class="dot"></span> Admissions</div>
+      </div>
+      <div class="container grid cols-3">
+        <div class="card">
+          <h4>Eligibility & Process</h4>
+          <p class="muted">Merit-based admissions with transparent counseling and guidance.</p>
+        </div>
+        <div class="card">
+          <h4>Scholarships</h4>
+          <p class="muted">Support for merit and need-based applicants subject to criteria.</p>
+        </div>
+        <div class="card">
+          <h4>How to Apply</h4>
+          <p class="muted">Review program details and submit your application online.</p>
+          <div style="margin-top: 10px;">
+            <a class="btn btn-primary" href="/login.html">Start Application</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="placements">
+      <div class="container">
+        <div class="section-title"><span class="dot"></span> Placements</div>
+      </div>
+      <div class="container grid cols-3">
+        <div class="card"><h4>Career Readiness</h4><p class="muted">Training in aptitude, coding, and communication.</p></div>
+        <div class="card"><h4>Industry Connect</h4><p class="muted">Internships and projects with partner companies.</p></div>
+        <div class="card"><h4>Alumni Network</h4><p class="muted">Mentorship and guidance from alumni across domains.</p></div>
+      </div>
+    </section>
+
+    <section id="campus">
+      <div class="container">
+        <div class="section-title"><span class="dot"></span> Campus Life</div>
+      </div>
+      <div class="container grid cols-3">
+        <div class="card"><h4>Clubs & Activities</h4><p class="muted">Technical clubs, hackathons, arts, and sports.</p></div>
+        <div class="card"><h4>Facilities</h4><p class="muted">Libraries, labs, smart classrooms, and hostels.</p></div>
+        <div class="card"><h4>Community</h4><p class="muted">Inclusive culture that supports growth and wellbeing.</p></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-title"><span class="dot"></span> Contact</div>
+      </div>
+      <div class="container grid cols-3">
+        <div class="card">
+          <h4>Address</h4>
+          <p class="muted">Velammal College of Engineering and Technology, Madurai, Tamil Nadu.</p>
+        </div>
+        <div class="card">
+          <h4>Email</h4>
+          <p class="muted">info@vcet.example.edu</p>
+        </div>
+        <div class="card">
+          <h4>Phone</h4>
+          <p class="muted">+91-0000-000000</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container footer-inner">
+        <div class="footer-meta">
+          <span>© <span id="year"></span> Velammal College of Engineering and Technology</span>
+          <span>•</span>
+          <span>All rights reserved</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Keep React/Vite bootstrapping -->
+    <!-- ...existing code... -->
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <!-- ...existing code... -->
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      // Mobile nav toggle
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileNav = document.getElementById('mobileNav');
+      if (menuBtn && mobileNav) {
+        menuBtn.addEventListener('click', () => {
+          mobileNav.classList.toggle('show');
+        });
+      }
+    </script>
+  </body>
+</html>
