@@ -39,6 +39,46 @@
         backdrop-filter: blur(12px);
         border: 1px solid rgba(255, 255, 255, 0.08);
       }
+  
+      /* Light theme overrides */
+      .theme-light .glass {
+        background: rgba(255, 255, 255, 0.7);
+        border-color: rgba(0, 0, 0, 0.08);
+      }
+      .theme-light header { border-color: #e5e7eb; }
+      .theme-light footer { border-color: #e5e7eb; }
+      .theme-light #mobileNav { background: #ffffff; border-color: #e5e7eb; }
+      .theme-light .text-gray-400 { color: #475569 !important; }
+      .theme-light .text-gray-500 { color: #64748b !important; }
+      .theme-light .border-gray-800 { border-color: #e5e7eb !important; }
+      .theme-light .border-gray-700 { border-color: #e5e7eb !important; }
+      .theme-light .bg-gray-900 { background-color: #ffffff !important; }
+      .theme-light section.bg-gray-800\/50 { background-color: rgba(0,0,0,0.02) !important; }
+      /* Hero text color adjustments in light theme */
+      .theme-light .hero .text-white { color: #0f172a !important; }
+      .theme-light .hero .text-gray-300 { color: #334155 !important; }
+      /* Header hover effects in light theme */
+      .theme-light header:hover { background-color: rgba(248, 250, 252, 0.9); }
+      .theme-light header nav a:hover { background-color: #e5e7eb; color: #0f172a !important; }
+      .theme-light #mobileNav a:hover { background-color: #f1f5f9; color: #0f172a !important; }
+      /* Active nav highlight (scroll) in light theme */
+      .theme-light header nav a.bg-gray-800,
+      .theme-light #mobileNav a.bg-gray-800 {
+        background-color: #e5e7eb !important;
+      }
+      .theme-light header nav a.text-white,
+      .theme-light #mobileNav a.text-white {
+        color: #0f172a !important;
+      }
+      /* Headings in light theme */
+      .theme-light h1,
+      .theme-light h2,
+      .theme-light h3,
+      .theme-light h4,
+      .theme-light h5,
+      .theme-light h6 {
+        color: #0f172a !important;
+      }
       
       /* Gradient text */
       .gradient-text {
@@ -103,6 +143,10 @@
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   }
+  .theme-light nav .text-gray-300 {
+    color: #0f172a !important;
+}
+
   
   /* Subtle reveal animation */
   @keyframes reveal {
