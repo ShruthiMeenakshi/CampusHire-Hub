@@ -24,239 +24,319 @@
             <h3>Student Profile</h3>
             <span class="muted">Update your personal and academic details</span>
           </div>
-          <form id="profileForm" class="form-grid" autocomplete="on">
-            <div class="form-field">
-              <label for="fullName">Full Name</label>
-              <input type="text" id="fullName" name="fullName" placeholder="e.g., Priya Sharma" required />
-            </div>
-            <div class="form-field">
-              <label for="studentId">Student ID / Roll No.</label>
-              <input type="text" id="studentId" name="studentId" placeholder="e.g., VCET2023CSE123" required />
-            </div>
+          
+          <!-- Wizard Progress -->
+          <div class="wizard-progress">
+            <ol class="wizard-steps">
+              <li class="active" data-step="1">Personal</li>
+              <li data-step="2">Academic</li>
+              <li data-step="3">Links & Skills</li>
+              <li data-step="4">Demographics</li>
+              <li data-step="5">Address</li>
+              <li data-step="6">Family</li>
+              <li data-step="7">IDs</li>
+              <li data-step="8">Placement</li>
+            </ol>
+          </div>
 
-            <div class="form-field">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="e.g., priya@vcet.edu" required />
+          <!-- Step Navigation & Status -->
+          <div class="step-navigation">
+            <div class="step-info">
+              <span class="current-step">Step 1 of 8</span>
+              <span class="step-title">Personal Information</span>
             </div>
-            <div class="form-field">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" placeholder="e.g., 9876543210" pattern="[0-9]{10}" required />
-            </div>
+          </div>
 
-            <div class="form-field">
-              <label for="department">Department</label>
-              <select id="department" name="department" required>
-                <option value="">Select department</option>
-                <option>CSE</option>
-                <option>IT</option>
-                <option>ECE</option>
-                <option>EEE</option>
-                <option>ME</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label for="degree">Degree</label>
-              <select id="degree" name="degree" required>
-                <option value="">Select degree</option>
-                <option>B.Tech</option>
-                <option>M.Tech</option>
-              </select>
-            </div>
+          <form id="profileForm" class="wizard-form" autocomplete="on">
+            <!-- Step 1: Personal -->
+            <section class="form-step active" data-step="1">
+              <div class="step-content">
+                <div class="form-grid">
+                  <div class="form-field">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="e.g., Priya Sharma" required />
+                  </div>
+                  <div class="form-field">
+                    <label for="studentId">Student ID / Roll No.</label>
+                    <input type="text" id="studentId" name="studentId" placeholder="e.g., VCET2023CSE123" required />
+                  </div>
+                  <div class="form-field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="e.g., priya@vcet.edu" required />
+                  </div>
+                  <div class="form-field">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="e.g., 9876543210" pattern="[0-9]{10}" required />
+                  </div>
+                </div>
+              </div>
+            </section>
 
-            <div class="form-field">
-              <label for="year">Year</label>
-              <select id="year" name="year" required>
-                <option value="">Select year</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label for="cgpa">CGPA</label>
-              <input type="number" id="cgpa" name="cgpa" min="0" max="10" step="0.01" placeholder="e.g., 8.45" />
-            </div>
+            <!-- Step 2: Academic -->
+            <section class="form-step" data-step="2" hidden>
+              <div class="step-content">
+                <div class="form-grid">
+                  <div class="form-field">
+                    <label for="department">Department</label>
+                    <select id="department" name="department" required>
+                      <option value="">Select department</option>
+                      <option>CSE</option>
+                      <option>IT</option>
+                      <option>ECE</option>
+                      <option>EEE</option>
+                      <option>ME</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label for="degree">Degree</label>
+                    <select id="degree" name="degree" required>
+                      <option value="">Select degree</option>
+                      <option>B.E</option>
+                      <option>B.Tech</option>
+                      <option>M.Tech</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label for="year">Year</label>
+                    <select id="year" name="year" required>
+                      <option value="">Select year</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label for="cgpa">CGPA</label>
+                    <input type="number" id="cgpa" name="cgpa" min="0" max="10" step="0.01" placeholder="e.g., 8.45" />
+                  </div>
+                  <div class="form-field">
+                    <label for="tenthPercentage">10th Percentage</label>
+                    <input type="number" id="tenthPercentage" name="tenthPercentage" min="0" max="100" step="0.01" placeholder="e.g., 85.5" />
+                  </div>
+                  <div class="form-field">
+                    <label for="twelfthPercentage">12th Percentage</label>
+                    <input type="number" id="twelfthPercentage" name="twelfthPercentage" min="0" max="100" step="0.01" placeholder="e.g., 88.0" />
+                  </div>
+                  <div class="form-field">
+                    <label for="backlogs">Current Backlogs</label>
+                    <input type="number" id="backlogs" name="backlogs" min="0" step="1" placeholder="e.g., 0" />
+                  </div>
+                  <div class="form-field">
+                    <label for="pastBacklogs">Past Backlogs</label>
+                    <input type="number" id="pastBacklogs" name="pastBacklogs" min="0" step="1" placeholder="e.g., 2" />
+                  </div>
+                </div>
+              </div>
+            </section>
 
-            <div class="form-field col-span-2">
-              <label for="skills">Skills</label>
-              <input type="text" id="skills" name="skills" placeholder="e.g., Java, Python, React, SQL" />
-            </div>
+            <!-- Step 3: Links & Skills -->
+            <section class="form-step" data-step="3" hidden>
+              <div class="step-content">
+                <div class="form-grid">
+                  <div class="form-field col-span-2">
+                    <label for="skills">Skills</label>
+                    <input type="text" id="skills" name="skills" placeholder="e.g., Java, Python, React, SQL" />
+                  </div>
+                  <div class="form-field">
+                    <label for="resumeUrl">Resume URL</label>
+                    <input type="url" id="resumeUrl" name="resumeUrl" placeholder="e.g., https://drive.google.com/..." />
+                  </div>
+                  <div class="form-field">
+                    <label for="portfolioUrl">Portfolio URL</label>
+                    <input type="url" id="portfolioUrl" name="portfolioUrl" placeholder="e.g., https://priya.dev" />
+                  </div>
+                  <div class="form-field col-span-2">
+                    <label for="linkedinUrl">LinkedIn URL</label>
+                    <input type="url" id="linkedinUrl" name="linkedinUrl" placeholder="e.g., https://www.linkedin.com/in/yourhandle" />
+                  </div>
+                  <div class="form-field col-span-2">
+                    <label for="githubUrl">GitHub URL</label>
+                    <input type="url" id="githubUrl" name="githubUrl" placeholder="e.g., https://github.com/yourhandle" />
+                  </div>
+                  <div class="form-field col-span-2">
+                    <label for="leetcodeUrl">LeetCode URL</label>
+                    <input type="url" id="leetcodeUrl" name="leetcodeUrl" placeholder="e.g., https://leetcode.com/yourhandle" />
+                  </div>
+                </div>
+              </div>
+            </section>
 
-            <div class="form-field">
-              <label for="resumeUrl">Resume URL</label>
-              <input type="url" id="resumeUrl" name="resumeUrl" placeholder="e.g., https://drive.google.com/..." />
-            </div>
-            <div class="form-field">
-              <label for="portfolioUrl">Portfolio URL</label>
-              <input type="url" id="portfolioUrl" name="portfolioUrl" placeholder="e.g., https://priya.dev" />
-            </div>
+            <!-- Step 4: Demographics -->
+            <section class="form-step" data-step="4" hidden>
+              <div class="step-content">
+                <div class="form-grid">
+                  <div class="form-field">
+                    <label for="dateOfBirth">Date of Birth</label>
+                    <input type="date" id="dateOfBirth" name="dateOfBirth" required />
+                  </div>
+                  <div class="form-field">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" required>
+                      <option value="">Select gender</option>
+                      <option>Male</option>
+                      <option>Female</option>
+                      <option>Other</option>
+                      <option>Prefer not to say</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label for="residentialStatus">Residential Status</label>
+                    <select id="residentialStatus" name="residentialStatus" required>
+                      <option value="">Select residential status</option>
+                      <option>Hosteller</option>
+                      <option>Day Scholar</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label for="Community">Community</label>
+                    <select id="Community" name="community" required>
+                      <option value="">Select community</option>
+                      <option>General</option>
+                      <option>OBC</option>
+                      <option>SC</option>
+                      <option>ST</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label for="nationality">Nationality</label>
+                    <input type="text" id="nationality" name="nationality" placeholder="e.g., Indian" />
+                  </div>
+                </div>
+              </div>
+            </section>
 
-            <div class="form-field col-span-2">
-              <label for="linkedinUrl">LinkedIn URL</label>
-              <input type="url" id="linkedinUrl" name="linkedinUrl" placeholder="e.g., https://www.linkedin.com/in/yourhandle" />
-            </div>
-            <div class="form-field col-span-2">
-              <label for="githubUrl">GitHub URL</label>
-              <input type="url" id="githubUrl" name="githubUrl" placeholder="e.g., https://github.com/yourhandle" />
-            </div>
-            <div class="form-field col-span-2">
-              <label for="leetcodeUrl">LeetCode URL</label>
-              <input type="url" id="leetcodeUrl" name="leetcodeUrl" placeholder="e.g., https://leetcode.com/yourhandle" />
-            </div>
+            <!-- Step 5: Address -->
+            <section class="form-step" data-step="5" hidden>
+              <div class="step-content">
+                <div class="form-grid">
+                  <div class="form-field col-span-2">
+                    <label for="address">Address</label>
+                    <textarea id="address" name="address" placeholder="e.g., 123 Main Street, City, State, Postal Code" rows="3"></textarea>
+                  </div>
+                  <div class="form-field">
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city" placeholder="e.g., Pune" />
+                  </div>
+                  <div class="form-field">
+                    <label for="state">State</label>
+                    <input type="text" id="state" name="state" placeholder="e.g., Maharashtra" />
+                  </div>
+                  <div class="form-field">
+                    <label for="pincode">Pincode</label>
+                    <input type="text" id="pincode" name="pincode" placeholder="e.g., 411001" pattern="[0-9]{6}" />
+                  </div>
+                </div>
+              </div>
+            </section>
 
-            <!-- Placement Registration Additional Fields -->
-            <div class="form-field">
-              <label for="dateOfBirth">Date of Birth</label>
-              <input type="date" id="dateOfBirth" name="dateOfBirth" required />
-            </div>
-            <div class="form-field">
-              <label for="gender">Gender</label>
-              <select id="gender" name="gender" required>
-                <option value="">Select gender</option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Other</option>
-                <option>Prefer not to say</option>
-              </select>
-            </div>
-            
-            <div class="form-field">
-              <label for="residential status">Residential Status</label>
-              <select id="residential status" name="residential status" required>
-                <option value="">Select residential status</option>
-                <option>Hosteller</option>
-                <option>Day Scholar</option>
-              </select>
-            </div>
+            <!-- Step 6: Family & Emergency -->
+            <section class="form-step" data-step="6" hidden>
+              <div class="step-content">
+                <div class="form-grid">
+                  <div class="form-field">
+                    <label for="fatherName">Father's Name</label>
+                    <input type="text" id="fatherName" name="fatherName" placeholder="e.g., Mr. Sharma" />
+                  </div>
+                  <div class="form-field">
+                    <label for="motherName">Mother's Name</label>
+                    <input type="text" id="motherName" name="motherName" placeholder="e.g., Mrs. Sharma" />
+                  </div>
+                  <div class="form-field">
+                    <label for="emergencyContact">Emergency Contact</label>
+                    <input type="tel" id="emergencyContact" name="emergencyContact" placeholder="e.g., 9876543210" pattern="[0-9]{10}" />
+                  </div>
+                  <div class="form-field col-span-2">
+                    <label for="emergencyContactName">Emergency Contact Person Name</label>
+                    <input type="text" id="emergencyContactName" name="emergencyContactName" placeholder="e.g., Relative's Name" />
+                  </div>
+                  <div class="form-field">
+                    <label for="numberOfSiblings">Number of Siblings</label>
+                    <input type="number" id="numberOfSiblings" name="numberOfSiblings" min="0" step="1" placeholder="e.g., 2" />
+                  </div>
+                  <div class="form-field">
+                    <label for="siblingDetails">Sibling Details</label>
+                    <input type="text" id="siblingDetails" name="siblingDetails" placeholder="e.g., Brother (22), Sister (20)" />
+                  </div>
+                </div>
+              </div>
+            </section>
 
-            <div class="form-field">
-              <label for="Community">Community</label>
-              <select id="Community" name="community" required>
-                <option value="">Select community</option>
-                <option>General</option>
-                <option>OBC</option>
-                <option>SC</option>
-                <option>ST</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label for="nationality">Nationality</label>
-              <input type="text" id="nationality" name="nationality" placeholder="e.g., Indian" />
-            </div>
+            <!-- Step 7: IDs -->
+            <section class="form-step" data-step="7" hidden>
+              <div class="step-content">
+                <div class="form-grid">
+                  <div class="form-field">
+                    <label for="aadharNumber">Aadhar Number</label>
+                    <input type="text" id="aadharNumber" name="aadharNumber" placeholder="e.g., XXXX XXXX XXXX" pattern="[0-9X ]{14}" />
+                  </div>
+                  <div class="form-field">
+                    <label for="panNumber">PAN Number</label>
+                    <input type="text" id="panNumber" name="panNumber" placeholder="e.g., ABCDE1234F" pattern="[A-Z]{5}[0-9]{4}[A-Z]" />
+                  </div>
+                  <div class="form-field">
+                    <label for="passportNumber">Passport Number</label>
+                    <input type="text" id="passportNumber" name="passportNumber" placeholder="e.g., A12345678" pattern="[A-Z0-9]{9}" />
+                  </div>
+                  <div class="form-field">
+                    <label for="rationCard">Ration Card Number</label>
+                    <input type="text" id="rationCard" name="rationCard" placeholder="e.g., R1234567890" />
+                  </div>
+                  <div class="form-field col-span-2">
+                    <label for="aggregateMarks">Aggregate Marks / Percentage</label>
+                    <input type="text" id="aggregateMarks" name="aggregateMarks" placeholder="e.g., 75% or 7.5 CGPA" />
+                  </div>
+                </div>
+              </div>
+            </section>
 
-            <div class="form-field">
-              <label for="tenthPercentage">10th Percentage</label>
-              <input type="number" id="tenthPercentage" name="tenthPercentage" min="0" max="100" step="0.01" placeholder="e.g., 85.5" />
-            </div>
-            <div class="form-field">
-              <label for="twelfthPercentage">12th Percentage</label>
-              <input type="number" id="twelfthPercentage" name="twelfthPercentage" min="0" max="100" step="0.01" placeholder="e.g., 88.0" />
-            </div>
+            <!-- Step 8: Placement -->
+            <section class="form-step" data-step="8" hidden>
+              <div class="step-content">
+                <div class="form-grid">
+                  <div class="form-field">
+                    <label for="placementInterested">Interested in Placement</label>
+                    <select id="placementInterested" name="placementInterested" required>
+                      <option value="">Select option</option>
+                      <option value="yes">Yes</option>
+                      <option value="no">No</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label for="placementReason">If Not Interested, Reason</label>
+                    <input type="text" id="placementReason" name="placementReason" placeholder="e.g., Pursuing further studies, Already placed, etc." />
+                  </div>
+                  <div class="form-field col-span-2">
+                    <label class="checkbox-label">
+                      <input type="checkbox" id="agreeToTerms" name="agreeToTerms" required />
+                      <span>I agree to the placement registration terms and conditions</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </section>
 
-            <div class="form-field">
-              <label for="backlogs">Current Backlogs</label>
-              <input type="number" id="backlogs" name="backlogs" min="0" step="1" placeholder="e.g., 0" />
+            <!-- Final Submit Actions -->
+            <div class="final-actions" hidden>
+              <div class="form-actions">
+                <button type="submit" class="btn ghost save-btn">
+                  <i class="ph ph-floppy-disk"></i><span>Save Profile</span>
+                </button>
+                <button type="reset" class="btn ghost">
+                  <i class="ph ph-arrow-counter-clockwise"></i><span>Reset</span>
+                </button>
+                <button type="button" class="btn ghost" id="btn-overview">
+                  <i class="ph ph-gauge"></i><span>Go to Overview</span>
+                </button>
+              </div>
             </div>
-            <div class="form-field">
-              <label for="pastBacklogs">Past Backlogs</label>
-              <input type="number" id="pastBacklogs" name="pastBacklogs" min="0" step="1" placeholder="e.g., 2" />
-            </div>
-
-            <div class="form-field col-span-2">
-              <label for="address">Address</label>
-              <textarea id="address" name="address" placeholder="e.g., 123 Main Street, City, State, Postal Code" rows="3"></textarea>
-            </div>
-
-            <div class="form-field">
-              <label for="city">City</label>
-              <input type="text" id="city" name="city" placeholder="e.g., Pune" />
-            </div>
-            <div class="form-field">
-              <label for="state">State</label>
-              <input type="text" id="state" name="state" placeholder="e.g., Maharashtra" />
-            </div>
-
-            <div class="form-field">
-              <label for="pincode">Pincode</label>
-              <input type="text" id="pincode" name="pincode" placeholder="e.g., 411001" pattern="[0-9]{6}" />
-            </div>
-            <div class="form-field">
-              <label for="fatherName">Father's Name</label>
-              <input type="text" id="fatherName" name="fatherName" placeholder="e.g., Mr. Sharma" />
-            </div>
-
-            <div class="form-field">
-              <label for="motherName">Mother's Name</label>
-              <input type="text" id="motherName" name="motherName" placeholder="e.g., Mrs. Sharma" />
-            </div>
-            <div class="form-field">
-              <label for="emergencyContact">Emergency Contact</label>
-              <input type="tel" id="emergencyContact" name="emergencyContact" placeholder="e.g., 9876543210" pattern="[0-9]{10}" />
-            </div>
-
-            <div class="form-field col-span-2">
-              <label for="emergencyContactName">Emergency Contact Person Name</label>
-              <input type="text" id="emergencyContactName" name="emergencyContactName" placeholder="e.g., Relative's Name" />
-            </div>
-
-            <!-- Sibling Details -->
-            <div class="form-field">
-              <label for="numberOfSiblings">Number of Siblings</label>
-              <input type="number" id="numberOfSiblings" name="numberOfSiblings" min="0" step="1" placeholder="e.g., 2" />
-            </div>
-            <div class="form-field">
-              <label for="siblingDetails">Sibling Details</label>
-              <input type="text" id="siblingDetails" name="siblingDetails" placeholder="e.g., Brother (22), Sister (20)" />
-            </div>
-
-            <div class="form-field">
-              <label for="aadharNumber">Aadhar Number</label>
-              <input type="text" id="aadharNumber" name="aadharNumber" placeholder="e.g., XXXX XXXX XXXX" pattern="[0-9X ]{14}" />
-            </div>
-            <div class="form-field">
-              <label for="panNumber">PAN Number</label>
-              <input type="text" id="panNumber" name="panNumber" placeholder="e.g., ABCDE1234F" pattern="[A-Z]{5}[0-9]{4}[A-Z]" />
-            </div>
-            <div class="form-field">
-              <label for="passportNumber">Passport Number</label>
-              <input type="text" id="passportNumber" name="passportNumber" placeholder="e.g., A12345678" pattern="[A-Z0-9]{9}" />
-            </div>
-            <div class="form-field">
-              <label for="rationCard">Ration Card Number</label>
-              <input type="text" id="rationCard" name="rationCard" placeholder="e.g., R1234567890" />
-            </div>
-
-            <div class="form-field col-span-2">
-              <label for="aggregateMarks">Aggregate Marks / Percentage</label>
-              <input type="text" id="aggregateMarks" name="aggregateMarks" placeholder="e.g., 75% or 7.5 CGPA" />
-            </div>
-
-            <!-- Placement Interest -->
-            <div class="form-field">
-              <label for="placementInterested">Interested in Placement</label>
-              <select id="placementInterested" name="placementInterested" required>
-                <option value="">Select option</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label for="placementReason">If Not Interested, Reason</label>
-              <input type="text" id="placementReason" name="placementReason" placeholder="e.g., Pursuing further studies, Already placed, etc." />
-            </div>
-
-            <div class="form-field col-span-2">
-              <label>
-                <input type="checkbox" id="agreeToTerms" name="agreeToTerms" required />
-                <span>I agree to the placement registration terms and conditions</span>
-              </label>
-            </div>
-
-            <div class="form-actions col-span-2">
-              <button type="submit" class="btn ghost save-btn"><i class="ph ph-floppy-disk"></i><span>Save Profile</span></button>
-              <button type="reset" class="btn ghost"><i class="ph ph-arrow-counter-clockwise"></i><span>Reset</span></button>
-              <button type="button" class="btn ghost" id="btn-overview"><i class="ph ph-gauge"></i><span>Go to Overview</span></button>
+            <div class="step-buttons">
+              <button type="button" class="btn ghost prev-step" disabled>
+                <i class="ph ph-arrow-left"></i> Back
+              </button>
+              <button type="button" class="btn ghost next-step">
+                Next <i class="ph ph-arrow-right"></i>
+              </button>
             </div>
           </form>
         </article>

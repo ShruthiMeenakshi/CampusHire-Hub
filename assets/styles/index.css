@@ -1,0 +1,173 @@
+:root {
+        --header-height: 80px;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: #0f172a;
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background: #334155;
+        border-radius: 4px;
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        background: #475569;
+      }
+      
+      /* Section spacing */
+      section {
+        scroll-margin-top: calc(var(--header-height) + 20px);
+      }
+      
+      /* Glass effect */
+      .glass {
+        background: rgba(15, 23, 42, 0.7);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+  
+      /* Light theme overrides */
+      .theme-light .glass {
+        background: rgba(255, 255, 255, 0.7);
+        border-color: rgba(0, 0, 0, 0.08);
+      }
+      .theme-light header { border-color: #e5e7eb; }
+      .theme-light footer { border-color: #e5e7eb; }
+      .theme-light #mobileNav { background: #ffffff; border-color: #e5e7eb; }
+      .theme-light .text-gray-400 { color: #475569 !important; }
+      .theme-light .text-gray-500 { color: #64748b !important; }
+      .theme-light .border-gray-800 { border-color: #e5e7eb !important; }
+      .theme-light .border-gray-700 { border-color: #e5e7eb !important; }
+      .theme-light .bg-gray-900 { background-color: #ffffff !important; }
+      .theme-light section.bg-gray-800\/50 { background-color: rgba(0,0,0,0.02) !important; }
+      /* Hero text color adjustments in light theme */
+      .theme-light .hero .text-white { color: #0f172a !important; }
+      .theme-light .hero .text-gray-300 { color: #334155 !important; }
+      /* Header hover effects in light theme */
+      .theme-light header:hover { background-color: rgba(248, 250, 252, 0.9); }
+      .theme-light header nav a:hover { background-color: #e5e7eb; color: #0f172a !important; }
+      .theme-light #mobileNav a:hover { background-color: #f1f5f9; color: #0f172a !important; }
+      /* Active nav highlight (scroll) in light theme */
+      .theme-light header nav a.bg-gray-800,
+      .theme-light #mobileNav a.bg-gray-800 {
+        background-color: #e5e7eb !important;
+      }
+      .theme-light header nav a.text-white,
+      .theme-light #mobileNav a.text-white {
+        color: #0f172a !important;
+      }
+      /* Headings in light theme */
+      .theme-light h1,
+      .theme-light h2,
+      .theme-light h3,
+      .theme-light h4,
+      .theme-light h5,
+      .theme-light h6 {
+        color: #0f172a !important;
+      }
+      
+      /* Gradient text */
+      .gradient-text {
+        background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      /* Hover effects */
+      .hover-lift {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      
+      .hover-lift:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
+      /* Animated gradient text */
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .animate-gradient {
+    animation: gradient 3s ease infinite;
+    background-size: 300% 300%;
+  }
+  
+  /* Enhanced float animation */
+  @keyframes enhanced-float {
+    0%, 100% { 
+      transform: translateY(0) translateX(0); 
+    }
+    25% { 
+      transform: translateY(-10px) translateX(5px); 
+    }
+    50% { 
+      transform: translateY(0) translateX(10px); 
+    }
+    75% { 
+      transform: translateY(10px) translateX(5px); 
+    }
+  }
+  
+  .animate-float {
+    animation: enhanced-float 6s ease-in-out infinite;
+  }
+  
+  /* Glowing effect */
+  .glow {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  }
+  
+  /* Enhanced card hover effect */
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+  .theme-light nav .text-gray-300 {
+    color: #0f172a !important;
+}
+
+  
+  /* Subtle reveal animation */
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-reveal {
+    animation: reveal 0.6s ease-out forwards;
+  }
+  
+  /* Enhanced glass effect */
+  .glass-enhanced {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
