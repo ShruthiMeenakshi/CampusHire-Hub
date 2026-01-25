@@ -16,6 +16,22 @@
 
   await loadIncludes();
 
+  // Highlight active nav link by current page
+  (function setActiveNavByPath() {
+    const current = (location.pathname.split('/').pop() || '').toLowerCase();
+    const links = document.querySelectorAll('.nav .nav-link');
+    links.forEach(link => {
+      const href = (link.getAttribute('href') || '').toLowerCase();
+      if (href.endsWith('.html')) {
+        if (href === current) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      }
+    });
+  })();
+
   // Populate header user info from saved profile
   (function updateHeaderProfile() {
     function readProfile() {
@@ -72,13 +88,62 @@
     }
   })();
 
+  const app = document.getElementById('app');
   const sidebar = document.getElementById('sidebar');
   const btnToggle = document.getElementById('btn-toggle-sidebar');
+  function isMobile() { return window.matchMedia('(max-width: 820px)').matches; }
+
+  function ensureBackdrop() {
+    let backdrop = document.getElementById('sidebar-backdrop');
+    if (!backdrop) {
+      backdrop = document.createElement('div');
+      backdrop.id = 'sidebar-backdrop';
+      backdrop.className = 'sidebar-backdrop';
+      document.body.appendChild(backdrop);
+      backdrop.addEventListener('click', () => closeMobileSidebar());
+    }
+    return backdrop;
+  }
+  function openMobileSidebar() {
+    sidebar.classList.add('open');
+    const backdrop = ensureBackdrop();
+    backdrop.classList.add('active');
+    document.body.classList.add('mobile-sidebar-open');
+  }
+  function closeMobileSidebar() {
+    sidebar.classList.remove('open');
+    const backdrop = document.getElementById('sidebar-backdrop');
+    if (backdrop) backdrop.classList.remove('active');
+    document.body.classList.remove('mobile-sidebar-open');
+  }
+
   if (btnToggle) {
     btnToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('open');
+      if (isMobile()) {
+        if (sidebar.classList.contains('open')) {
+          closeMobileSidebar();
+        } else {
+          openMobileSidebar();
+        }
+      } else if (app) {
+        app.classList.toggle('sidebar-collapsed');
+      }
     });
   }
+
+  // Bind mobile back button inside sidebar
+  const btnCloseSidebar = document.getElementById('btn-close-sidebar');
+  if (btnCloseSidebar) {
+    btnCloseSidebar.addEventListener('click', () => {
+      if (isMobile()) closeMobileSidebar();
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (isMobile() && e.key === 'Escape') {
+      closeMobileSidebar();
+    }
+  });
 
   // Logout handler: clear session/localStorage (preserve theme) and redirect
   (function bindLogout() {

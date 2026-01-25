@@ -16,6 +16,55 @@
 
   await loadIncludes();
 
+  // Populate header user info from saved profile
+  (function updateHeaderProfile() {
+    function readProfile() {
+      const loginEmail = localStorage.getItem('ch_email') || '';
+      let data = {};
+      try {
+        const wizRaw = localStorage.getItem('profileWizardData');
+        if (wizRaw) {
+          const wiz = JSON.parse(wizRaw);
+          Object.keys(wiz || {}).forEach(key => {
+            const stepData = wiz[key];
+            if (stepData && typeof stepData === 'object') {
+              data = { ...data, ...stepData };
+            }
+          });
+        }
+      } catch (_) {}
+      // Fallback to legacy key
+      if (!data.fullName && !data.email) {
+        try {
+          const legacy = JSON.parse(localStorage.getItem('ch_profile') || '{}');
+          data = { ...legacy, ...data };
+        } catch (_) {}
+      }
+      // Normalize possible older field name
+      data.degree = data.degree || data.program || '';
+      return {
+        fullName: (data.fullName || '').trim(),
+        degree: (data.degree || '').trim(),
+        email: (data.email || loginEmail).trim()
+      };
+    }
+
+    const profile = readProfile();
+    const userAnchor = document.querySelector('.actions .user');
+    if (!userAnchor) return;
+    const nameEl = userAnchor.querySelector('.name');
+    const roleEl = userAnchor.querySelector('.role');
+    const imgEl = userAnchor.querySelector('img');
+
+    if (nameEl) nameEl.textContent = profile.fullName || profile.email || 'Student';
+    if (roleEl) roleEl.textContent = profile.degree || 'Student';
+    if (imgEl && profile.fullName) {
+      const seed = encodeURIComponent(profile.fullName);
+      imgEl.src = `https://api.dicebear.com/7.x/initials/svg?seed=${seed}`;
+      imgEl.alt = profile.fullName + ' avatar';
+    }
+  })();
+
   // Set active nav link for My Applications
   const navLinks = document.querySelectorAll('.nav-link');
   navLinks.forEach(link => {
@@ -26,13 +75,62 @@
     }
   });
 
+  const app = document.getElementById('app');
   const sidebar = document.getElementById('sidebar');
   const btnToggle = document.getElementById('btn-toggle-sidebar');
+  function isMobile() { return window.matchMedia('(max-width: 820px)').matches; }
+
+  function ensureBackdrop() {
+    let backdrop = document.getElementById('sidebar-backdrop');
+    if (!backdrop) {
+      backdrop = document.createElement('div');
+      backdrop.id = 'sidebar-backdrop';
+      backdrop.className = 'sidebar-backdrop';
+      document.body.appendChild(backdrop);
+      backdrop.addEventListener('click', () => closeMobileSidebar());
+    }
+    return backdrop;
+  }
+  function openMobileSidebar() {
+    sidebar.classList.add('open');
+    const backdrop = ensureBackdrop();
+    backdrop.classList.add('active');
+    document.body.classList.add('mobile-sidebar-open');
+  }
+  function closeMobileSidebar() {
+    sidebar.classList.remove('open');
+    const backdrop = document.getElementById('sidebar-backdrop');
+    if (backdrop) backdrop.classList.remove('active');
+    document.body.classList.remove('mobile-sidebar-open');
+  }
+
   if (btnToggle) {
     btnToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('open');
+      if (isMobile()) {
+        if (sidebar.classList.contains('open')) {
+          closeMobileSidebar();
+        } else {
+          openMobileSidebar();
+        }
+      } else if (app) {
+        app.classList.toggle('sidebar-collapsed');
+      }
     });
   }
+
+  // Bind mobile back button inside sidebar
+  const btnCloseSidebar = document.getElementById('btn-close-sidebar');
+  if (btnCloseSidebar) {
+    btnCloseSidebar.addEventListener('click', () => {
+      if (isMobile()) closeMobileSidebar();
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (isMobile() && e.key === 'Escape') {
+      closeMobileSidebar();
+    }
+  });
 
   const applications = [
     {

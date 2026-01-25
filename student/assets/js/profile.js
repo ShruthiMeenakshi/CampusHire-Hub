@@ -39,6 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load saved data from localStorage if exists
     loadSavedData();
 
+    // Prefill from previously submitted profile (if available)
+    prefillFromSavedProfile();
+
     // Prefill email with login email (if present) and empty
     const emailInput = form.querySelector('#email');
     if (emailInput && loginEmail && !emailInput.value) {
@@ -390,21 +393,26 @@ document.addEventListener('DOMContentLoaded', function() {
       // Here you would typically send data to server
       // For now, simulate API call
       await simulateApiCall(data);
+
+      // Persist a normalized profile for profile-view plus full form data
+      const profile = {
+        ...data,
+        program: data.degree || data.program || ''
+      };
+      try {
+        localStorage.setItem('ch_profile', JSON.stringify(profile));
+      } catch (_) {}
       
       showNotification('Profile saved successfully!', 'success');
       
-      // Clear localStorage on successful save
+      // Clear wizard cache on successful save
       localStorage.removeItem('profileWizardData');
       formData.clear();
       
-      // Optionally redirect or show success page
+      // Redirect to profile view after brief success toast
       setTimeout(() => {
-        if (saveBtn) {
-          saveBtn.disabled = false;
-          saveBtn.innerHTML = '<i class="ph ph-floppy-disk"></i><span>Profile Saved</span>';
-          saveBtn.classList.remove('loading');
-        }
-      }, 1500);
+        try { window.location.href = 'profile-view.html'; } catch (_) {}
+      }, 1000);
       
     } catch (error) {
       showNotification('Failed to save profile. Please try again.', 'error');
@@ -430,8 +438,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Go to overview
   function goToOverview() {
-    alert('This would navigate to the overview page in a real application.');
-    // window.location.href = 'overview.html';
+    try { window.location.href = 'profile-view.html'; } catch (_) {}
   }
   
   // Show review modal
@@ -595,6 +602,38 @@ document.addEventListener('DOMContentLoaded', function() {
       setTimeout(() => notification.remove(), 300);
     }, 5000);
   }
+
+  // Prefill form fields from saved profile (localStorage 'ch_profile')
+  function prefillFromSavedProfile() {
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem('ch_profile') || 'null'); } catch (_) {}
+    if (!saved || !form) return;
+
+    const inputs = form.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+      const name = input.name;
+      if (!name) return;
+      let val = saved[name];
+      // support alias mapping
+      if (val === undefined && name === 'degree') {
+        val = saved.program;
+      }
+      if (val === undefined) return;
+      if (input.type === 'checkbox') {
+        input.checked = !!val && val !== 'false' && val !== '0';
+      } else {
+        input.value = val;
+      }
+    });
+
+    // Update wizard cache to reflect prefilled values
+    const originalStep = currentStep;
+    for (let i = 1; i <= totalSteps; i++) {
+      currentStep = i;
+      saveCurrentStepData();
+    }
+    currentStep = originalStep;
+  }
   
   // Debounce function for auto-save
   function debounce(func, wait) {
@@ -611,11 +650,10 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Simulate API call
   function simulateApiCall(data) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       setTimeout(() => {
-        // Simulate random success/failure
-        Math.random() > 0.1 ? resolve(data) : reject(new Error('Network error'));
-      }, 1500);
+        resolve(data);
+      }, 500);
     });
   }
   
