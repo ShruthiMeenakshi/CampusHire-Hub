@@ -1,4 +1,8 @@
 package com.vcet.campushire.admin.companymanagement.dto;
 
-public class EmploymentType {
+public enum EmploymentType {
+
+    INTERN,
+    FULL_TIME,
+    CONTRACT
 }

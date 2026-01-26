@@ -1,4 +1,6 @@
 package com.vcet.campushire.admin.companymanagement.dto;
 
-public class CompanyStatus {
+public enum CompanyStatus {
+    ACTIVE,
+    INACTIVE
 }

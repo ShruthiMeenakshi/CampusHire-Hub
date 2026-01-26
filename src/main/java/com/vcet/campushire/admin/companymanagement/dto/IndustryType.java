@@ -1,4 +1,18 @@
 package com.vcet.campushire.admin.companymanagement.dto;
 
-public class IndustryType {
+public enum IndustryType {
+
+    IT,
+    SOFTWARE,
+    CORE,
+    FINANCE,
+    BANKING,
+    HEALTHCARE,
+    MANUFACTURING,
+    CONSULTING,
+    ECOMMERCE,
+    TELECOM,
+    EDUCATION,
+    STARTUP,
+    OTHER
 }

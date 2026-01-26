@@ -1,4 +1,7 @@
 package com.vcet.campushire.admin.companymanagement.dto;
 
-public class DriveType {
+public enum DriveType {
+    INTERNSHIP,
+    FULL_TIME,
+    PPO
 }
