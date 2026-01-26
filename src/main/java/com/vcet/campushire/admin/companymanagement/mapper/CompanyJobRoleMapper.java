@@ -18,4 +18,6 @@ public class CompanyJobRoleMapper {
         dto.setActive(role.isActive());
         return dto;
     }
+
+
 }
