@@ -6,8 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-@RestControllerAdvice
-public class GlobalExceptionHandler {
+@RestControllerAdvice("com.vcet.campushire.admin.companymanagement")
+public class CompanyManagementExceptionHandler  {
 
     @ExceptionHandler(CompanyNotFoundException.class)
     public ResponseEntity<ApiResponse<Object>> handleCompanyNotFound(

@@ -8,6 +8,8 @@ import com.vcet.campushire.admin.companymanagement.model.CompanyHR;
 import com.vcet.campushire.admin.companymanagement.repository.CompanyHRRepository;
 import com.vcet.campushire.admin.companymanagement.repository.CompanyRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,6 +26,7 @@ public class CompanyHRService {
         this.companyRepository = companyRepository;
     }
 
+    @Transactional
     public CompanyHRDTO addHR(Long companyId, CompanyHRDTO dto) {
 
         Company company = companyRepository.findById(companyId)
@@ -54,6 +57,7 @@ public class CompanyHRService {
         return CompanyHRMapper.toDTO(hrRepository.save(hr));
     }
 
+    @Transactional
     public void markPrimaryHR(Long hrId) {
 
         CompanyHR hr = hrRepository.findById(hrId)

@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.*;
 
 import com.vcet.campushire.admin.placementdrive.util.ApiResponse;
 
-@RestControllerAdvice
-public class GlobalExceptionHandler {
+@RestControllerAdvice("com.vcet.campushire.admin.placementdrive")
+public class PlacementDriveExceptionHandler  {
 
     @ExceptionHandler(PlacementDriveNotFoundException.class)
     public ResponseEntity<ApiResponse<?>> handleNotFound(
