@@ -1,173 +1,228 @@
-# CampusHire Hub – Project Documentation
 
-## 1. Project Overview
 
-**CampusHire Hub** is a web-based placement management portal designed to streamline campus recruitment activities for students, placement coordinators, and placement officers. The system centralizes placement drives, student profiles, applications, and placement officer into a single, user-friendly dashboard.
+---
 
-### Objectives:
+# **CampusHire – Campus Placement Management System**
 
-- Digitize and simplify campus placement processes
-- Provide real-time visibility of placement drives and applications
-- Enable data-driven decision-making for placement teams
-- Improve student preparedness and engagement
+CampusHire is a full-stack web application that helps colleges manage their campus placement process in a simple, organized, and transparent way. It replaces manual spreadsheets and scattered tools with a centralized platform for students, faculty, and the placement head.
 
-## 2. Technology Stack
+---
 
-- **HTML5**
-- **Tailwind CSS**
-- **Vanilla JavaScript**
-- **React**
-- **Springboot**
+## **🚀 Features Overview**
 
-### Storage (Current Phase)
+### 👨‍🎓 Student
 
-- Browser localStorage (for prototyping)
+* Create and update placement profile
+* Upload resume and skill details
+* Link LeetCode username
+* View placement drives and company details
+* Track placement statistics (read-only)
 
-### Architecture (Future-Ready)
+### 👩‍🏫 Faculty
 
-- Modular frontend structure
-- Backend-ready (can integrate with REST APIs)
+* View student profiles (read-only)
+* Monitor placement progress and statistics
+* View upcoming and past placement drives
 
-## 3. User Roles & Modules
+### 🧑‍💼 Placement Head (Admin)
 
-### 3.1 Student Module
+* Full admin access (RBAC)
+* Filter and shortlist students based on:
 
-The Student Module is the core user-facing component, allowing students to view opportunities, manage profiles, and track applications.
+  * CGPA
+  * Skills
+  * Department
+  * LeetCode performance
+* Add placement drives, events, and training sessions
+* Send reminders and notifications
+* Track company visit history
+* View analytics dashboards
+* Maintain audit logs for critical actions
 
-**Features Implemented:**
+---
 
-#### a) Authentication Pages
+## **🧱 System Architecture**
 
-- Login page
-- Sign-up / registration page
-- Form validation
+![Image](https://miro.medium.com/v2/resize%3Afit%3A1400/1%2ATLuTKSGiH8H6yRWCb1pIKQ.jpeg)
 
-#### b) Dashboard
+![Image](https://cdn.prod.website-files.com/67ec482dfa06d8122041af15/684a925fe73251c83a771ffd_38bb8e0c729e726e9cd8bafb3457497c3e4b34e2.jpeg)
 
-- View all active placement drives
-- Quick stats on applications and placements
-- Recent notifications and announcements
+![Image](https://davidhettler.net/assets/images/setup-2021.png)
 
-#### c) Drives Module
+### **Architecture Overview**
 
-- Browse all available placement drives
-- Filter by company, date, and eligibility criteria
-- View drive details (company info, JD, date/time, location)
-- Register for drives
-
-#### d) Applications Module
-
-- Track submitted applications
-- View application status (pending, shortlisted, rejected, interview scheduled)
-- Upload/manage application documents
-
-#### e) Profile Module
-
-- View and edit student profile (name, roll number, branch, etc.)
-- Upload resume and portfolio
-- Add skills and academic information
-- View profile completion percentage
-
-#### f) Statistics Module
-
-- Personal placement statistics
-- Interview success rate
-- Applications submitted vs. shortlisted ratio
-- Skills gap analysis
-
-#### g) Events Module
-
-- View upcoming campus events, webinars, and workshops
-- Register for events
-- Calendar view of placements and events
-
-### 3.2 Placement Coordinator Module (Future Phase)
-
-Expected features:
-
-- Manage multiple drives
-- View and approve student registrations
-- Track drive progress
-- Generate reports
-
-### 3.3 Placement Officer Module
-
-Expected features:
-
-- Dashboard for all drives and analytics
-- Company management
-- Bulk student registration
-- Advanced filtering and reporting
-
-## 4. Project Structure
+CampusHire follows a **layered full-stack architecture**:
 
 ```
-CampusHire-Hub/
-├── login.html
-├── signup.html
-├── README.md
-├── assets/
-│   └── styles/
-│       ├── login.css
-│       └── signup.css
-├── media/
-├── PO/
-│   ├── events.html
-│   └── index.html
-└── student/
-    ├── drives.html
-    ├── index.html
-    ├── my-applications.html
-    ├── profile-view.html
-    ├── profile.html
-    ├── stats.html
-    ├── assets/
-    │   ├── js/
-    │   │   ├── applications.js
-    │   │   ├── dashboard.js
-    │   │   ├── drives.js
-    │   │   ├── events.js
-    │   │   ├── profile-view.js
-    │   │   ├── profile.js
-    │   │   └── stats.js
-    │   └── styles/
-    │       ├── application.css
-    │       ├── dashboard.css
-    │       ├── drives.css
-    │       ├── profile.css
-    │       └── stats.css
-    └── includes/
-        ├── sidebar.html
-        └── topbar.html
+[ React + Tailwind CSS ]
+          |
+          | REST APIs (JWT Secured)
+          |
+[ Spring Boot Backend ]
+          |
+          | JPA / Hibernate
+          |
+[ PostgreSQL Database ]
+          |
+[ External Services ]
+   - LeetCode API
+   - Email / Notification Service
 ```
 
-## 5. Quick Start
+### **Key Points**
 
-For the includes to load correctly, run a local server (fetching HTML includes is blocked from `file://`).
+* Frontend and backend are completely decoupled
+* Backend exposes REST APIs secured using JWT
+* PostgreSQL handles all persistent data
+* Docker is used for containerization and easy deployment
+* External APIs are handled only by the backend for security
 
-### Option 1: VS Code Live Server
+---
 
-1. Install the "Live Server" extension in VS Code.
-2. Right-click `index.html` → "Open with Live Server".
+## **📊 High-Level Component Diagram**
 
-### Option 2: Python HTTP server
+![Image](https://www.researchgate.net/publication/383741924/figure/fig1/AS%3A11431281275914604%401725456586992/System-Component-Diagram-Figure-2-illustrates-the-system-component-diagram-The-first.ppm)
 
-Run from the project root:
+![Image](https://i.sstatic.net/1YhfI.png)
+
+![Image](https://martinfowler.com/articles/modularizing-react-apps/evolution-5.png)
+
+### **Components**
+
+* **Frontend**
+
+  * Authentication pages
+  * Role-based dashboards
+  * Data visualization (charts & tables)
+* **Backend**
+
+  * Auth Service (JWT, RBAC)
+  * Student Management
+  * Placement & Event Management
+  * Analytics Module
+  * LeetCode Integration Module
+* **Database**
+
+  * Students
+  * Placement Events
+  * Company Records
+  * LeetCode Stats
+  * Audit Logs
+
+---
+
+## **🛠️ Tech Stack**
+
+### **Frontend**
+
+* **React**
+* **Tailwind CSS**
+* Axios (API calls)
+* Chart libraries (for analytics dashboards)
+
+### **Backend**
+
+* **Spring Boot**
+* Spring Security (JWT + RBAC)
+* Spring Data JPA
+* RESTful APIs
+
+### **Database**
+
+* **PostgreSQL**
+
+### **DevOps / Deployment**
+
+* **Docker**
+* Docker Compose (multi-container setup)
+
+### **External Integration**
+
+* **LeetCode API** (coding performance tracking)
+
+---
+
+## **📁 Project Structure**
+
+```
+CampusHire/
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   └── App.jsx
+│   └── tailwind.config.js
+│
+├── backend/
+│   ├── controller/
+│   ├── service/
+│   ├── repository/
+│   ├── entity/
+│   ├── security/
+│   └── CampusHireApplication.java
+│
+├── docker-compose.yml
+└── README.md
+```
+
+---
+
+## **🔐 Security**
+
+* JWT-based authentication
+* Role-Based Access Control (Student / Faculty / Placement Head)
+* Password encryption
+* Backend-only API integrations
+* Audit logs for admin actions
+
+---
+
+## **📈 Analytics & Visualization**
+
+* Placement success rate
+* Company-wise hiring statistics
+* Department-wise placement trends
+* Average and highest packages
+* Placed vs unplaced students
+
+---
+
+## **🐳 Docker Setup (Example)**
 
 ```bash
-python -m http.server 5500
+docker-compose up --build
 ```
 
-Then open: http://localhost:5500/student/index.html
+Services:
 
-## 6. Customization
+* React frontend
+* Spring Boot backend
+* PostgreSQL database
 
-- Replace sample data in the respective JavaScript files with your API.
-- Adjust colors and spacing via CSS in the `assets/styles/` directory.
-- Add routes/links in `includes/sidebar.html` per your modules.
+---
 
-## 7. Notes
+## **📌 Future Enhancements**
 
-- The project uses Tailwind CSS and Vanilla JavaScript.
-- Future phases will integrate React for enhanced UI and Springboot for backend.
-- Icons use Phosphor Icons or custom SVGs.
+* Codeforces & GitHub integration
+* AI-based student shortlisting
+* Alumni placement tracking
+* Multi-college support
+* Mobile app version
+
+---
+
+## **🤝 Contribution**
+
+This project is built as a learning-focused full-stack application.
+Contributions, improvements, and feature suggestions are welcome.
+
+---
+
+## **📄 License**
+
+This project is intended for academic and learning purposes.
+
+---
+
