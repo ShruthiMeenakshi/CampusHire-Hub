@@ -1,21 +1,2 @@
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-    "./index.html",
-  ],
-  theme: {
-    extend: {
-      colors: {
-        primary: '#3B82F6',
-        secondary: '#10B981',
-        danger: '#EF4444',
-        warning: '#F59E0B',
-      },
-      fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-      },
-    },
-  },
-  plugins: [],
-}
+import cfg from './config/tailwind.config.js';
+export default cfg;
