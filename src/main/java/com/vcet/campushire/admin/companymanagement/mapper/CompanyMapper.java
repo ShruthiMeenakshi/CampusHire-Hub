@@ -25,7 +25,7 @@ public class CompanyMapper {
         dto.setId(company.getId());
         dto.setCompanyName(company.getCompanyName());
         dto.setIndustry(company.getIndustry());
-        dto.setStatus(company.getStatus());
+        dto.setStatus(String.valueOf(company.getStatus()));
         return dto;
     }
 }

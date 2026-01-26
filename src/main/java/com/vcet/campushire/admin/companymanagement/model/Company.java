@@ -102,7 +102,7 @@ public class Company {
         this.headquarters = headquarters;
     }
 
-    public String getStatus() {
+    public CompanyStatus getStatus() {
         return status;
     }
 
