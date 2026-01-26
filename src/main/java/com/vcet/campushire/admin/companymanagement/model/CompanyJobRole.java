@@ -24,7 +24,7 @@ public class CompanyJobRole {
     @JoinColumn(name = "company_id")
     private Company company;
 
-    public CompanyJobRole(Long id, String roleTitle, String jobDescription, String requiredSkills, EmploymentType employmentType, boolean active, Company company) {
+    public CompanyJobRole() {
         this.id = id;
         this.roleTitle = roleTitle;
         this.jobDescription = jobDescription;

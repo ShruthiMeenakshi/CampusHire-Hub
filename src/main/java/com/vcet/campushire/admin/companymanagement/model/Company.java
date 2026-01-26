@@ -16,6 +16,7 @@ public class Company {
 
     private String industry;
 
+    @Column(length = 2000)
     private String description;
 
     private String website;
