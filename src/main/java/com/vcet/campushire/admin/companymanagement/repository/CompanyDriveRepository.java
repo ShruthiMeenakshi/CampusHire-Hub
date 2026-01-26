@@ -1,4 +1,11 @@
 package com.vcet.campushire.admin.companymanagement.repository;
 
-public class CompanyDriveRepository {
+import com.vcet.campushire.admin.companymanagement.model.CompanyDrive;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface CompanyDriveRepository extends JpaRepository<CompanyDrive, Long> {
+
+    List<CompanyDrive> findByCompanyId(Long companyId);
 }

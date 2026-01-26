@@ -1,4 +1,17 @@
 package com.vcet.campushire.admin.companymanagement.repository;
 
-public class CompanyHRRepository {
+import com.vcet.campushire.admin.companymanagement.model.CompanyHR;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
+
+public interface CompanyHRRepository extends JpaRepository<CompanyHR, Long> {
+
+    List<CompanyHR> findByCompanyId(Long companyId);
+
+    @Modifying
+    @Query("UPDATE CompanyHR hr SET hr.primaryHr = false WHERE hr.company.id = :companyId")
+    void unsetPrimaryHR(Long companyId);
 }
