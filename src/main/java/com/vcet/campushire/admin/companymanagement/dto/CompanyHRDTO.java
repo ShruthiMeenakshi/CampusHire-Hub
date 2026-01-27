@@ -5,16 +5,13 @@ public class CompanyHRDTO {
     private Long id;
     private String hrName;
     private String email;
+    private String phone;
+    private String designation;
+    private String linkedinUrl;
     private boolean primaryHr;
+    private boolean active;
 
     public CompanyHRDTO() {
-    }
-
-    public CompanyHRDTO(Long id, String hrName, String email, boolean primaryHr) {
-        this.id = id;
-        this.hrName = hrName;
-        this.email = email;
-        this.primaryHr = primaryHr;
     }
 
     public Long getId() {
@@ -41,11 +38,43 @@ public class CompanyHRDTO {
         this.email = email;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+
+    public String getLinkedinUrl() {
+        return linkedinUrl;
+    }
+
+    public void setLinkedinUrl(String linkedinUrl) {
+        this.linkedinUrl = linkedinUrl;
+    }
+
     public boolean isPrimaryHr() {
         return primaryHr;
     }
 
     public void setPrimaryHr(boolean primaryHr) {
         this.primaryHr = primaryHr;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }
