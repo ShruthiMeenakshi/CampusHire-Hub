@@ -12,46 +12,32 @@ public class CompanyVisit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDate visitDate;
+    @Column(name = "academic_year")
     private String academicYear;
 
+    @Column(name = "drive_type")
     @Enumerated(EnumType.STRING)
     private DriveType driveType;
 
+    @Column(name = "students_shortlisted")
     private int studentsShortlisted;
+
+    @Column(name = "students_placed")
     private int studentsPlaced;
 
-    @ManyToOne
-    @JoinColumn(name = "company_id")
+    @Column(name = "visit_date")
+    private LocalDate visitDate;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "company_id", nullable = false)
     private Company company;
 
     public CompanyVisit() {
     }
 
-    public CompanyVisit(Long id, LocalDate visitDate, String academicYear, DriveType driveType, int studentsShortlisted, int studentsPlaced, Company company) {
-        this.id = id;
-        this.visitDate = visitDate;
-        this.academicYear = academicYear;
-        this.driveType = driveType;
-        this.studentsShortlisted = studentsShortlisted;
-        this.studentsPlaced = studentsPlaced;
-        this.company = company;
-    }
-
+    // 🔽 GETTERS & SETTERS (CRITICAL)
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public LocalDate getVisitDate() {
-        return visitDate;
-    }
-
-    public void setVisitDate(LocalDate visitDate) {
-        this.visitDate = visitDate;
     }
 
     public String getAcademicYear() {
@@ -84,6 +70,14 @@ public class CompanyVisit {
 
     public void setStudentsPlaced(int studentsPlaced) {
         this.studentsPlaced = studentsPlaced;
+    }
+
+    public LocalDate getVisitDate() {
+        return visitDate;
+    }
+
+    public void setVisitDate(LocalDate visitDate) {
+        this.visitDate = visitDate;
     }
 
     public Company getCompany() {
