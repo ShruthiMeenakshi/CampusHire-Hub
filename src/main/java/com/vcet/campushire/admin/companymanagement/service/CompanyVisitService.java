@@ -8,6 +8,7 @@ import com.vcet.campushire.admin.companymanagement.model.CompanyVisit;
 import com.vcet.campushire.admin.companymanagement.repository.CompanyRepository;
 import com.vcet.campushire.admin.companymanagement.repository.CompanyVisitRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,6 +25,8 @@ public class CompanyVisitService {
         this.companyRepository = companyRepository;
     }
 
+
+    @Transactional
     public CompanyVisitDTO addVisit(Long companyId, CompanyVisitDTO dto) {
 
         Company company = companyRepository.findById(companyId)
@@ -33,6 +36,8 @@ public class CompanyVisitService {
         visit.setVisitDate(dto.getVisitDate());
         visit.setAcademicYear(dto.getAcademicYear());
         visit.setDriveType(dto.getDriveType());
+        visit.setStudentsShortlisted(dto.getStudentsShortlisted());
+        visit.setStudentsPlaced(dto.getStudentsPlaced());
         visit.setCompany(company);
 
         return CompanyVisitMapper.toDTO(visitRepository.save(visit));
@@ -52,6 +57,7 @@ public class CompanyVisitService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public CompanyVisitDTO updateOutcome(Long visitId, CompanyVisitDTO dto) {
 
         CompanyVisit visit = visitRepository.findById(visitId)
