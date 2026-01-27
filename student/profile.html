@@ -46,27 +46,46 @@
               <span class="step-title">Personal Information</span>
             </div>
           </div>
-
           <form id="profileForm" class="wizard-form" autocomplete="on">
             <!-- Step 1: Personal -->
             <section class="form-step active" data-step="1">
               <div class="step-content">
                 <div class="form-grid">
                   <div class="form-field">
+                    <label for="nameWithInitials">Name with Initials</label>
+                    <input type="text" id="nameWithInitials" name="nameWithInitials" placeholder="NAME With Initials (ex: Dheeraj T R)" />
+                  </div>
+                  
+                  <div class="form-field">
+                    <label for="fullNameWithoutInitials">Full Name (Without Initials)</label>
+                    <input type="text" id="fullNameWithoutInitials" name="fullNameWithoutInitials"
+                      placeholder="FULL NAME WITHOUT INITIALS (ex: Sethu Rajan)" />
+                  </div>
+
+                  <div class="form-field">
                     <label for="fullName">Full Name</label>
                     <input type="text" id="fullName" name="fullName" placeholder="e.g., Priya Sharma" required />
                   </div>
                   <div class="form-field">
-                    <label for="studentId">Student ID / Roll No.</label>
-                    <input type="text" id="studentId" name="studentId" placeholder="e.g., VCET2023CSE123" required />
+                    <label for="universityRegNo">University Register Number</label>
+                    <input type="text" id="universityRegNo" name="universityRegNo" placeholder="University Reg. No. (ex: 913119106019)" />
                   </div>
                   <div class="form-field">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="e.g., priya@vcet.edu" required />
                   </div>
+                  
+                  <div class="form-field">
+                    <label for="altEmail">Alternate Email (optional)</label>
+                    <input type="email" id="altEmail" name="altEmail" placeholder="If same as primary, you may re-enter the same email" />
+                  </div>
                   <div class="form-field">
                     <label for="phone">Phone</label>
                     <input type="tel" id="phone" name="phone" placeholder="e.g., 9876543210" pattern="[0-9]{10}" required />
+                  </div>
+                  <div class="form-field">
+                    <label for="altPhone">Alternate Phone</label>
+                    <input type="tel" id="altPhone" name="altPhone" placeholder="e.g., 9876543210" pattern="[0-9]{10}" />
                   </div>
                 </div>
               </div>
@@ -111,6 +130,45 @@
                     <input type="number" id="cgpa" name="cgpa" min="0" max="10" step="0.01" placeholder="e.g., 8.45" />
                   </div>
                   <div class="form-field">
+                    <label for="sem1Gpa">Semester 1 GPA</label>
+                    <input type="number" id="sem1Gpa" name="sem1Gpa" min="0" max="10" step="0.01" placeholder="e.g., 8.25" />
+                  </div>
+                  
+                  <div class="form-field">
+                    <label for="sem2Gpa">Semester 2 GPA</label>
+                    <input type="number" id="sem2Gpa" name="sem2Gpa" min="0" max="10" step="0.01" placeholder="e.g., 8.10" />
+                  </div>
+                  
+                  <div class="form-field">
+                    <label for="sem3Gpa">Semester 3 GPA</label>
+                    <input type="number" id="sem3Gpa" name="sem3Gpa" min="0" max="10" step="0.01" placeholder="e.g., 8.40" />
+                  </div>
+                  
+                  <div class="form-field">
+                    <label for="sem4Gpa">Semester 4 GPA</label>
+                    <input type="number" id="sem4Gpa" name="sem4Gpa" min="0" max="10" step="0.01" placeholder="e.g., 8.60" />
+                  </div>
+                  
+                  <div class="form-field">
+                    <label for="sem5Gpa">Semester 5 GPA</label>
+                    <input type="number" id="sem5Gpa" name="sem5Gpa" min="0" max="10" step="0.01" placeholder="e.g., 8.75" />
+                  </div>
+                  
+                  <div class="form-field">
+                    <label for="sem6Gpa">Semester 6 GPA</label>
+                    <input type="number" id="sem6Gpa" name="sem6Gpa" min="0" max="10" step="0.01" placeholder="e.g., 8.90" />
+                  </div>
+                  
+                  <div class="form-field">
+                    <label for="sem7Gpa">Semester 7 GPA</label>
+                    <input type="number" id="sem7Gpa" name="sem7Gpa" min="0" max="10" step="0.01" placeholder="e.g., 9.00" />
+                  </div>
+                  
+                  <div class="form-field">
+                    <label for="sem8Gpa">Semester 8 GPA</label>
+                    <input type="number" id="sem8Gpa" name="sem8Gpa" min="0" max="10" step="0.01" placeholder="e.g., 9.10" />
+                  </div>
+                  <div class="form-field">
                     <label for="tenthPercentage">10th Percentage</label>
                     <input type="number" id="tenthPercentage" name="tenthPercentage" min="0" max="100" step="0.01" placeholder="e.g., 85.5" />
                   </div>
@@ -119,12 +177,43 @@
                     <input type="number" id="twelfthPercentage" name="twelfthPercentage" min="0" max="100" step="0.01" placeholder="e.g., 88.0" />
                   </div>
                   <div class="form-field">
+                    <label for="tenthMathsMark">10th Maths Mark</label>
+                    <input type="number" id="tenthMathsMark" name="tenthMathsMark" min="0" max="100" step="1" placeholder="e.g., 92"
+                      required />
+                  </div>
+                  
+                  <div class="form-field">
+                    <label for="twelfthMathsMark">12th Maths Mark</label>
+                    <input type="number" id="twelfthMathsMark" name="twelfthMathsMark" min="0" max="100" step="1" placeholder="e.g., 88"
+                      required />
+                  </div>
+                  <div class="form-field">
                     <label for="backlogs">Current Backlogs</label>
                     <input type="number" id="backlogs" name="backlogs" min="0" step="1" placeholder="e.g., 0" />
                   </div>
                   <div class="form-field">
                     <label for="pastBacklogs">Past Backlogs</label>
                     <input type="number" id="pastBacklogs" name="pastBacklogs" min="0" step="1" placeholder="e.g., 2" />
+                  </div>
+                  <div class="form-field">
+                    <label for="diplomaPercentage">Diploma Marks (%)</label>
+                    <input type="number" id="diplomaPercentage" name="diplomaPercentage" step="0.01"
+                      placeholder="Diploma Marks in % (Eg. 74.32)" />
+                  </div>
+                  
+                  <div class="form-field">
+                    <label for="courseGap">Course Gap (Years)</label>
+                    <input type="number" id="courseGap" name="courseGap" min="0" step="1" placeholder="Course GAP in years" />
+                  </div>
+                  
+                  <div class="form-field">
+                    <label for="cutoffMarks">12th Cut Off Marks</label>
+                    <input type="number" id="cutoffMarks" name="cutoffMarks" step="0.01" placeholder="12th Cut off marks (ex: 178.50)" />
+                  </div>
+                  
+                  <div class="form-field">
+                    <label for="mediumOfInstruction">Medium of Instruction</label>
+                    <input type="text" id="mediumOfInstruction" name="mediumOfInstruction" placeholder="Medium of instruction" />
                   </div>
                 </div>
               </div>
@@ -157,6 +246,22 @@
                   <div class="form-field col-span-2">
                     <label for="leetcodeUrl">LeetCode URL</label>
                     <input type="url" id="leetcodeUrl" name="leetcodeUrl" placeholder="e.g., https://leetcode.com/yourhandle" />
+                  </div>
+                  <div class="form-field col-span-2">
+                    <label for="skillCertifications">Skill Certifications</label>
+                    <input type="text" id="skillCertifications" name="skillCertifications"
+                      placeholder="If any Skill Certifications Obtained Name the Skill" />
+                  </div>
+                  
+                  <div class="form-field">
+                    <label for="certificationDuration">Certification Duration</label>
+                    <input type="text" id="certificationDuration" name="certificationDuration" placeholder="Duration of the course" />
+                  </div>
+                  
+                  <div class="form-field col-span-2">
+                    <label for="certificationVendor">Certification Vendor / Authority</label>
+                    <input type="text" id="certificationVendor" name="certificationVendor"
+                      placeholder="Certification Vendor/Authority/Agency Name" />
                   </div>
                 </div>
               </div>
@@ -202,6 +307,14 @@
                     <label for="nationality">Nationality</label>
                     <input type="text" id="nationality" name="nationality" placeholder="e.g., Indian" />
                   </div>
+                  <div class="form-field">
+                    <label for="ruralUrban">Rural / Urban</label>
+                    <select id="ruralUrban" name="ruralUrban">
+                      <option value="">Select</option>
+                      <option>Rural</option>
+                      <option>Urban</option>
+                    </select>
+                  </div>
                 </div>
               </div>
             </section>
@@ -239,8 +352,17 @@
                     <input type="text" id="fatherName" name="fatherName" placeholder="e.g., Mr. Sharma" />
                   </div>
                   <div class="form-field">
+                    <label for="fatherOccupation">Father's Occupation</label>
+                    <input type="text" id="fatherOccupation" name="fatherOccupation" placeholder="Father's Occupation" />
+                  </div>
+
+                  <div class="form-field">
                     <label for="motherName">Mother's Name</label>
                     <input type="text" id="motherName" name="motherName" placeholder="e.g., Mrs. Sharma" />
+                  </div>
+                  <div class="form-field">
+                    <label for="motherOccupation">Mother's Occupation</label>
+                    <input type="text" id="motherOccupation" name="motherOccupation" placeholder="Mother's Occupation" />
                   </div>
                   <div class="form-field">
                     <label for="emergencyContact">Emergency Contact</label>
@@ -267,12 +389,40 @@
               <div class="step-content">
                 <div class="form-grid">
                   <div class="form-field">
+                    <label for="aadharAvailable">Is Aadhar Available?</label>
+                    <select id="aadharAvailable" name="aadharAvailable">
+                      <option value="">Select</option>
+                      <option value="Y">Yes</option>
+                      <option value="N">No</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label for="nameAsPerAadhar">Name as per Aadhar</label>
+                    <input type="text" id="nameAsPerAadhar" name="nameAsPerAadhar" placeholder="Name as per Aadhar card" />
+                  </div>
+                  <div class="form-field">
                     <label for="aadharNumber">Aadhar Number</label>
                     <input type="text" id="aadharNumber" name="aadharNumber" placeholder="e.g., XXXX XXXX XXXX" pattern="[0-9X ]{14}" />
                   </div>
                   <div class="form-field">
+                    <label for="panAvailable">Is PAN Card Available?</label>
+                    <select id="panAvailable" name="panAvailable">
+                      <option value="">Select</option>
+                      <option value="Y">Yes</option>
+                      <option value="N">No</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
                     <label for="panNumber">PAN Number</label>
                     <input type="text" id="panNumber" name="panNumber" placeholder="e.g., ABCDE1234F" pattern="[A-Z]{5}[0-9]{4}[A-Z]" />
+                  </div>
+                  <div class="form-field">
+                    <label for="passportAvailable">Is Passport Available?</label>
+                    <select id="passportAvailable" name="passportAvailable">
+                      <option value="">Select</option>
+                      <option value="Y">Yes</option>
+                      <option value="N">No</option>
+                    </select>
                   </div>
                   <div class="form-field">
                     <label for="passportNumber">Passport Number</label>
@@ -281,10 +431,6 @@
                   <div class="form-field">
                     <label for="rationCard">Ration Card Number</label>
                     <input type="text" id="rationCard" name="rationCard" placeholder="e.g., R1234567890" />
-                  </div>
-                  <div class="form-field col-span-2">
-                    <label for="aggregateMarks">Aggregate Marks / Percentage</label>
-                    <input type="text" id="aggregateMarks" name="aggregateMarks" placeholder="e.g., 75% or 7.5 CGPA" />
                   </div>
                 </div>
               </div>
@@ -305,6 +451,14 @@
                   <div class="form-field">
                     <label for="placementReason">If Not Interested, Reason</label>
                     <input type="text" id="placementReason" name="placementReason" placeholder="e.g., Pursuing further studies, Already placed, etc." />
+                  </div>       
+                  <div class="form-field">
+                    <label for="becStatus">BEC Status</label>
+                    <select id="becStatus" name="becStatus">
+                      <option value="">Select</option>
+                      <option>Yes</option>
+                      <option>No</option>
+                    </select>
                   </div>
                   <div class="form-field col-span-2">
                     <label class="checkbox-label">
