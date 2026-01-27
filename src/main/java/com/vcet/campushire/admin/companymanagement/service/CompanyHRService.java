@@ -10,7 +10,6 @@ import com.vcet.campushire.admin.companymanagement.repository.CompanyRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,6 +38,9 @@ public class CompanyHRService {
         CompanyHR hr = new CompanyHR();
         hr.setHrName(dto.getHrName());
         hr.setEmail(dto.getEmail());
+        hr.setPhone(dto.getPhone());
+        hr.setDesignation(dto.getDesignation());
+        hr.setLinkedinUrl(dto.getLinkedinUrl());
         hr.setPrimaryHr(dto.isPrimaryHr());
         hr.setActive(true);
         hr.setCompany(company);
@@ -53,6 +55,9 @@ public class CompanyHRService {
 
         hr.setHrName(dto.getHrName());
         hr.setEmail(dto.getEmail());
+        hr.setPhone(dto.getPhone());
+        hr.setDesignation(dto.getDesignation());
+        hr.setLinkedinUrl(dto.getLinkedinUrl());
 
         return CompanyHRMapper.toDTO(hrRepository.save(hr));
     }
@@ -79,6 +84,7 @@ public class CompanyHRService {
     }
 
     public List<CompanyHRDTO> getHRs(Long companyId) {
+
         return hrRepository.findByCompanyId(companyId)
                 .stream()
                 .map(CompanyHRMapper::toDTO)
