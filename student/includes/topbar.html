@@ -1,0 +1,64 @@
+<style>
+	/* Ensure profile text is black in light theme */
+	html[data-theme="light"] .topbar .user .name,
+	html[data-theme="light"] .topbar .user .role {
+		color: #000;
+	}
+
+	/* Enhance Logout button appearance */
+	.actions .logout-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		height: 36px;
+		padding: 0 12px;
+		border-radius: 10px;
+		border: 1px solid var(--border);
+		background: transparent;
+		color: var(--muted);
+	}
+
+	.actions .logout-btn:hover {
+		color: var(--danger);
+		border-color: rgba(255, 255, 255, 0.2);
+	}
+
+	html[data-theme="light"] .actions .logout-btn:hover {
+		border-color: rgba(15, 23, 42, 0.2);
+	}
+</style>
+<div class="topbar-inner">
+	<button class="icon-btn" id="btn-toggle-sidebar" aria-label="Toggle sidebar">
+		<i class="ph ph-list"></i>
+	</button>
+
+	<form class="search" role="search" aria-label="Search">
+		<i class="ph ph-magnifying-glass"></i>
+		<input type="search" placeholder="Search companies, drives, students..." />
+	</form>
+
+	<div class="actions">
+		<button class="icon-btn" id="btn-theme" aria-label="Toggle theme">
+			<i class="ph ph-moon"></i>
+		</button>
+		<button class="icon-btn" id="btn-settings" aria-label="Settings">
+			<i class="ph ph-gear"></i>
+		</button>
+		<button class="icon-btn" id="btn-notifications" aria-label="Notifications">
+			<i class="ph ph-bell"></i>
+			<span class="dot" aria-hidden="true"></span>
+		</button>
+		<button class="btn ghost logout-btn" id="btn-logout" aria-label="Logout">
+			<i class="ph ph-sign-out"></i>
+			<span>Logout</span>
+		</button>
+		<a class="user" href="profile-view.html" style="text-decoration: none; color:white; ">
+			<img src="https://i.pravatar.cc/40?img=11" alt="User avatar" />
+			<div class="meta">
+				<span class="name">Student</span>
+				<span class="role">B.Tech</span>
+			</div>
+			<i class="ph ph-caret-down"></i>
+		</a>
+	</div>
+</div>

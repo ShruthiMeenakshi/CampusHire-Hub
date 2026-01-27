@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Placement Drives — CampusHire Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/styles/drives.css" />
+    <!-- Shared topbar/sidebar styles -->
+    <link rel="stylesheet" href="assets/styles/dashboard.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+</head>
+<body>
+    <div id="app">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="sidebar" data-include="includes/sidebar.html"></aside>
+
+        <!-- Main Content -->
+        <div class="main">
+            <!-- Topbar -->
+            <header id="topbar" class="topbar" data-include="includes/topbar.html"></header>
+
+            <!-- Page Content -->
+            <main class="content">
+                <!-- Page Header Section -->
+                <section class="page-header">
+                    <div class="header-content">
+                        <div class="header-text">
+                            <h1 class="page-title">Placement Drives</h1>
+                            <p class="page-subtitle">Explore and apply for upcoming placement opportunities</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="search-filter-section">
+                    <div class="search-bar">
+                        <i class="ph ph-magnifying-glass"></i>
+                        <input 
+                            type="text" 
+                            id="search-input" 
+                            class="search-input" 
+                            placeholder="Search by company or role..." 
+                        />
+                    </div>
+
+                    <div class="filter-pills">
+                        <button class="filter-pill active" data-filter="all">All Drives</button>
+                        <button class="filter-pill" data-filter="open">Open</button>
+                        <button class="filter-pill" data-filter="upcoming">Upcoming</button>
+                        <button class="filter-pill" data-filter="closed">Closed</button>
+                        <button class="filter-pill" data-filter="applied">Applied</button>
+                    </div>
+                </section>
+
+                <section class="drives-listing">
+                    <div id="drives-container" class="drives-grid"></div>
+                    <div id="empty-state" class="empty-state" style="display: none;">
+                        <div class="empty-state-content">
+                            <i class="ph ph-briefcase"></i>
+                            <h3>No drives found</h3>
+                            <p>Try adjusting your search or filters</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="assets/js/includes-loader.js"></script>
+    <script src="assets/js/drives.js"></script>
+</body>
+</html>
