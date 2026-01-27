@@ -29,8 +29,6 @@ public class CompanyService {
         }
 
         Company company = CompanyMapper.toEntity(dto);
-        company.setStatus(CompanyStatus.ACTIVE);
-
         return CompanyMapper.toDTO(companyRepository.save(company));
     }
 
@@ -43,6 +41,8 @@ public class CompanyService {
         company.setIndustry(dto.getIndustry());
         company.setDescription(dto.getDescription());
         company.setWebsite(dto.getWebsite());
+        company.setCompanySize(dto.getCompanySize());
+        company.setHeadquarters(dto.getHeadquarters());
 
         return CompanyMapper.toDTO(companyRepository.save(company));
     }
