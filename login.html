@@ -6,10 +6,12 @@
     <title>CampusHireHub - Login</title>
     <link rel="stylesheet" href="./assets/styles/login.css">
 </head>
+
 <body>
     <div class="login-container">
+
+        <!-- Left Section: Login Form -->
         <div class="login-section">
-    
             <h1 class="login-heading">Login</h1>
 
             <form id="loginForm">
@@ -33,37 +35,43 @@
 
                 <button type="submit" class="login-btn">Login</button>
 
+                <!-- ✅ SIGNUP LINK -->
                 <div class="create-account">
-                    New user? <a href="signup.html" class="create-account-link">Create an account</a>
+                    New user?
+                    <a href="./signup.html" class="create-account-link">Create an account</a>
                 </div>
             </form>
         </div>
 
+        <!-- Right Section -->
         <div class="welcome-section">
             <div class="logo-placeholder">
-                <div>
-                    <img src="./media/vcetLogo.jpg" alt="CampusHireHub Logo">
-                </div>
+                <img src="./media/vcetLogo.jpg" alt="CampusHireHub Logo">
             </div>
             <div class="welcome-greeting">Hello there,</div>
             <div class="welcome-message">Welcome back</div>
         </div>
+
     </div>
+
+    <!-- ✅ SCRIPT MUST BE INSIDE BODY -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('loginForm');
+            if (!form) return;
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const email = document.getElementById('email').value;
+                localStorage.setItem('ch_email', email);
+
+                // redirect after login
+                window.location.href = 'student/profile.html';
+            });
+        });
+    </script>
+
 </body>
 </html>
-<script>
-    // Lightweight client-side login redirect to student profile
-    document.addEventListener('DOMContentLoaded', function () {
-        var form = document.getElementById('loginForm');
-        if (!form) return;
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            var email = document.getElementById('email')?.value || '';
-            // Persist email for prefill on profile page
-            try { localStorage.setItem('ch_email', email); } catch (_) {}
-            // Redirect to student profile
-            window.location.href = 'student/profile.html';
-        });
-    });
-</script>
-</html>
+
