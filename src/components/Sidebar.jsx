@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { List, X, House, Briefcase, FileText, BarChart3, SignOut } from 'phosphor-react'
 
 export default function Sidebar() {
@@ -38,14 +39,14 @@ export default function Sidebar() {
           {navItems.map((item) => {
             const Icon = item.icon
             return (
-              <a
+              <Link
                 key={item.href}
-                href={item.href}
+                to={item.href}
                 className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
               >
                 <Icon size={20} />
                 <span className="font-medium">{item.label}</span>
-              </a>
+              </Link>
             )
           })}
         </nav>

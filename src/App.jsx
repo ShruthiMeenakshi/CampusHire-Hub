@@ -16,6 +16,8 @@ function App() {
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        {/* Fallback for unknown paths */}
+        <Route path="*" element={<Navigate to="/login" />} />
         
         {/* Student Routes */}
         <Route path="/student" element={<Navigate to="/student/dashboard" />} />

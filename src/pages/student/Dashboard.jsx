@@ -1,6 +1,7 @@
 import Sidebar from '@/components/Sidebar'
 import Topbar from '@/components/Topbar'
 import { CheckCircle, Briefcase, ChartLineUp, Buildings, TrendingUp, Download, Eye } from 'phosphor-react'
+import { Link } from 'react-router-dom'
 import { useEffect, useRef } from 'react'
 import Chart from 'chart.js/auto'
 
@@ -123,9 +124,9 @@ export default function StudentDashboard() {
             <div className="bg-white rounded-lg shadow p-6">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-lg font-semibold text-gray-900">Upcoming Drives</h3>
-                <a href="/student/drives" className="text-blue-600 hover:text-blue-700 text-sm font-medium">
+                <Link to="/student/drives" className="text-blue-600 hover:text-blue-700 text-sm font-medium">
                   View all
-                </a>
+                </Link>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
@@ -159,9 +160,9 @@ export default function StudentDashboard() {
             <div className="bg-white rounded-lg shadow p-6">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-lg font-semibold text-gray-900">My Applications</h3>
-                <a href="/student/applications" className="text-blue-600 hover:text-blue-700 text-sm font-medium">
+                <Link to="/student/applications" className="text-blue-600 hover:text-blue-700 text-sm font-medium">
                   View all
-                </a>
+                </Link>
               </div>
               <div className="space-y-4">
                 {[
