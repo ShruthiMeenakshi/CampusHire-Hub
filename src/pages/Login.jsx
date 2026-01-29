@@ -32,7 +32,8 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
+    <div className="login-page">
+      <div className="login-container">
       <div className="login-section">
         <h1 className="login-heading">Login</h1>
 
@@ -97,6 +98,7 @@ const Login = () => {
 
         <div className="welcome-greeting">Hello there,</div>
         <div className="welcome-message">Welcome back</div>
+      </div>
       </div>
     </div>
   );

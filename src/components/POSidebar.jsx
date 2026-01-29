@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { X, Plus } from 'phosphor-react'
 
 export default function POSidebar() {
@@ -32,13 +32,13 @@ export default function POSidebar() {
 
         <nav className="flex-1 px-4 py-6 space-y-2">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.href}
-              href={item.href}
+              to={item.href}
               className="block px-4 py-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition font-medium"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
       </aside>
