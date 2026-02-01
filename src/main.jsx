@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
-import "../assets/styles/index.css";   // <-- Tailwind styles
+import "./styles/index.css";   // Use src/styles for global app CSS
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

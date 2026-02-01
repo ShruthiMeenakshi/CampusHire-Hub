@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   Home,
   Briefcase,
@@ -17,6 +17,17 @@ import {
 } from 'lucide-react';
 
 const Sidebar = ({ activePage = 'dashboard', collapsed = false, onToggle }) => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Clear any stored auth tokens or user data
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('userData');
+    sessionStorage.clear();
+    
+    // Redirect to login page
+    navigate('/login');
+  };
   const menuItems = [
     { icon: <Home className="w-5 h-5" />, label: 'Dashboard', path: '/student/dashboard', key: 'dashboard' },
     { icon: <Briefcase className="w-5 h-5" />, label: 'Drives', path: '/student/drives', key: 'drives' },
@@ -27,11 +38,6 @@ const Sidebar = ({ activePage = 'dashboard', collapsed = false, onToggle }) => {
     { icon: <User className="w-5 h-5" />, label: 'Profile', path: '/student/profile', key: 'profile' },
     { icon: <Calendar className="w-5 h-5" />, label: 'Events', path: '/student/events', key: 'events' },
     { icon: <Award className="w-5 h-5" />, label: 'Achievements', path: '/student/achievements', key: 'achievements' },
-  ];
-
-  const bottomItems = [
-    { icon: <Settings className="w-5 h-5" />, label: 'Settings', path: '/settings' },
-    { icon: <LogOut className="w-5 h-5" />, label: 'Logout', path: '/logout' },
   ];
 
   return (
@@ -66,16 +72,20 @@ const Sidebar = ({ activePage = 'dashboard', collapsed = false, onToggle }) => {
 
           {/* Bottom Section */}
           <div className="pt-4 mt-4 border-t border-gray-200 dark:border-blue-800">
-            {bottomItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.path}
-                className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-50 dark:text-blue-100 dark:hover:bg-blue-800"
-              >
-                {item.icon}
-                {item.label}
-              </Link>
-            ))}
+            <Link
+              to="/settings"
+              className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-50 dark:text-blue-100 dark:hover:bg-blue-800"
+            >
+              <Settings className="w-5 h-5" />
+              Settings
+            </Link>
+            <button
+              onClick={handleLogout}
+              className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-50 dark:text-blue-100 dark:hover:bg-blue-800 transition-colors"
+            >
+              <LogOut className="w-5 h-5" />
+              Logout
+            </button>
           </div>
         </nav>
       </div>

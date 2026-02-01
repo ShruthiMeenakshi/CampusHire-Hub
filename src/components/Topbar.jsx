@@ -68,8 +68,8 @@ const Topbar = ({
   ]);
 
   const [user] = useState({
-    name: 'Priya Sharma',
-    department: 'Computer Science',
+    name: 'Student',
+    department: 'Student',
     year: '4th Year',
     cgpa: '8.45',
     avatarColor: 'from-blue-500 to-blue-600'

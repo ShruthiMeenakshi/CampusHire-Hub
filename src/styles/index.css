@@ -36,3 +36,196 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+
+/* ==========================
+   Theme Overrides (Global)
+   ========================== */
+
+/* Light Theme: white backgrounds + black text when `.theme-light` is present */
+.theme-light { background-color: #ffffff; color: #000000; }
+.theme-light body { background-color: #ffffff; color: #000000; }
+
+.theme-light h1,
+.theme-light h2,
+.theme-light h3,
+.theme-light h4,
+.theme-light h5,
+.theme-light h6 { color: #000000 !important; }
+
+/* Ensure common boxes are white in light theme */
+.theme-light .bg-white,
+.theme-light .bg-gray-50,
+.theme-light .bg-gray-100,
+.theme-light .bg-gray-200,
+.theme-light .bg-gray-300,
+.theme-light .bg-gray-400,
+.theme-light .bg-slate-50,
+.theme-light .bg-slate-100,
+.theme-light .bg-slate-200,
+.theme-light .bg-blue-50,
+.theme-light .bg-blue-100 { background-color: #ffffff !important; }
+
+/* Map common gray text utilities to black in light theme */
+.theme-light .text-gray-900,
+.theme-light .text-gray-800,
+.theme-light .text-gray-700,
+.theme-light .text-gray-600,
+.theme-light .text-gray-500,
+.theme-light .text-gray-400 { color: #000000 !important; }
+
+/* Dark Theme: applied when `html` does NOT have `.theme-light` */
+html:not(.theme-light) body { background-color: #0b1221; color: #e5e7eb; }
+html:not(.theme-light) .bg-white { background-color: #0b1e3a !important; }
+html:not(.theme-light) .bg-gray-50 { background-color: #0f172a !important; }
+html:not(.theme-light) .bg-gray-100 { background-color: #1f2937 !important; color: #e5e7eb !important; }
+html:not(.theme-light) .bg-gray-200 { background-color: #374151 !important; color: #e5e7eb !important; }
+html:not(.theme-light) .border-gray-200 { border-color: rgba(255,255,255,0.12) !important; }
+html:not(.theme-light) .border-gray-300 { border-color: rgba(255,255,255,0.18) !important; }
+
+/* Typography in dark theme */
+html:not(.theme-light) .text-gray-900,
+html:not(.theme-light) .text-gray-800,
+html:not(.theme-light) .text-gray-700 { color: #e5e7eb !important; }
+html:not(.theme-light) .text-gray-600 { color: #cbd5e1 !important; }
+html:not(.theme-light) .text-gray-500 { color: #94a3b8 !important; }
+
+/* Blue accent containers for dark mode */
+html:not(.theme-light) .bg-blue-50 { background-color: #0b2a4d !important; color: #cfe8ff !important; }
+html:not(.theme-light) .bg-blue-100 { background-color: #103765 !important; color: #dbeafe !important; }
+
+/* Additional dark palette mappings */
+html:not(.theme-light) .bg-gray-300 { background-color: #2b3648 !important; color: #e5e7eb !important; }
+html:not(.theme-light) .bg-gray-400 { background-color: #223045 !important; color: #e5e7eb !important; }
+html:not(.theme-light) .bg-gray-500 { background-color: #1a2639 !important; color: #e5e7eb !important; }
+html:not(.theme-light) .bg-slate-50 { background-color: #0f172a !important; color: #e5e7eb !important; }
+html:not(.theme-light) .bg-slate-100 { background-color: #0e1a2f !important; color: #e5e7eb !important; }
+html:not(.theme-light) .bg-slate-200 { background-color: #102139 !important; color: #e5e7eb !important; }
+html:not(.theme-light) .bg-indigo-50 { background-color: #102d5c !important; color: #e5e7eb !important; }
+html:not(.theme-light) .bg-indigo-100 { background-color: #0f2a55 !important; color: #e5e7eb !important; }
+
+/* Gradient stop adjustments for dark mode */
+html:not(.theme-light) .from-blue-50 { --tw-gradient-from: #0b2a4d !important; }
+html:not(.theme-light) .to-blue-100 { --tw-gradient-to: #103765 !important; }
+html:not(.theme-light) .from-indigo-50 { --tw-gradient-from: #102d5c !important; }
+html:not(.theme-light) .to-indigo-100 { --tw-gradient-to: #0f2a55 !important; }
+/* Student theme overrides: Light vs Dark mapped to utility classes */
+
+/* Light theme: white backgrounds, black text */
+.theme-light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.theme-light body {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Headings in light theme */
+.theme-light h1,
+.theme-light h2,
+.theme-light h3,
+.theme-light h4,
+.theme-light h5,
+.theme-light h6 {
+  color: #000000 !important;
+}
+html:not(.theme-light) h1,
+html:not(.theme-light) h2,
+html:not(.theme-light) h3,
+html:not(.theme-light) h4,
+html:not(.theme-light) h5,
+html:not(.theme-light) h6 {
+  color: #e5e7eb !important;
+
+}
+
+/* Ensure common boxes are white in light theme */
+.theme-light .bg-white,
+.theme-light .bg-gray-50,
+.theme-light .bg-gray-100,
+.theme-light .bg-gray-200,
+.theme-light .bg-gray-300,
+.theme-light .bg-gray-400,
+.theme-light .bg-slate-50,
+.theme-light .bg-slate-100,
+.theme-light .bg-slate-200,
+.theme-light .bg-blue-50,
+.theme-light .bg-blue-100 {
+  background-color: #ffffff !important;
+}
+
+/* Map common gray text utilities to black in light theme */
+.theme-light .text-gray-900,
+.theme-light .text-gray-800,
+.theme-light .text-gray-700,
+.theme-light .text-gray-600,
+.theme-light .text-gray-500,
+.theme-light .text-gray-400 {
+  color: #000000 !important;
+}
+
+/* Dark theme: deep slate/blue containers with light text */
+html:not(.theme-light) body {
+  background-color: #0b1221; /* deep slate/blue backdrop */
+  color: #e5e7eb; /* light font color */
+}
+
+html:not(.theme-light) .bg-white {
+  background-color: #0b1e3a !important; /* dark blue container */
+}
+
+html:not(.theme-light) .bg-gray-50 {
+  background-color: #0f172a !important; /* slate-900 */
+}
+
+html:not(.theme-light) .bg-gray-100 {
+  background-color: #1f2937 !important; /* slate-800 */
+  color: #e5e7eb !important;
+}
+
+html:not(.theme-light) .bg-gray-200 {
+  background-color: #374151 !important; /* slate-700 */
+  color: #e5e7eb !important;
+}
+
+html:not(.theme-light) .border-gray-200 {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+html:not(.theme-light) .border-gray-300 {
+  border-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+/* Typography mapping to light colors in dark theme */
+html:not(.theme-light) .text-gray-900,
+html:not(.theme-light) .text-gray-800,
+html:not(.theme-light) .text-gray-700 { color: #e5e7eb !important; }
+html:not(.theme-light) .text-gray-600 { color: #cbd5e1 !important; }
+html:not(.theme-light) .text-gray-500 { color: #94a3b8 !important; }
+
+/* Blue accent containers softened for dark mode */
+html:not(.theme-light) .bg-blue-50 {
+  background-color: #0b2a4d !important; /* navy-tinted */
+  color: #cfe8ff !important;
+}
+html:not(.theme-light) .bg-blue-100 {
+  background-color: #103765 !important;
+  color: #dbeafe !important;
+}
+
+/* Additional container mappings for dark palette */
+html:not(.theme-light) .bg-gray-300 { background-color: #2b3648 !important; color: #e5e7eb !important; }
+html:not(.theme-light) .bg-gray-400 { background-color: #223045 !important; color: #e5e7eb !important; }
+html:not(.theme-light) .bg-gray-500 { background-color: #1a2639 !important; color: #e5e7eb !important; }
+html:not(.theme-light) .bg-slate-50 { background-color: #0f172a !important; color: #e5e7eb !important; }
+html:not(.theme-light) .bg-slate-100 { background-color: #0e1a2f !important; color: #e5e7eb !important; }
+html:not(.theme-light) .bg-slate-200 { background-color: #102139 !important; color: #e5e7eb !important; }
+html:not(.theme-light) .bg-indigo-50 { background-color: #102d5c !important; color: #e5e7eb !important; }
+html:not(.theme-light) .bg-indigo-100 { background-color: #0f2a55 !important; color: #e5e7eb !important; }
+
+/* Gradients: adjust from/to stops for dark mode for common blues */
+html:not(.theme-light) .from-blue-50 { --tw-gradient-from: #0b2a4d !important; }
+html:not(.theme-light) .to-blue-100 { --tw-gradient-to: #103765 !important; }
+html:not(.theme-light) .from-indigo-50 { --tw-gradient-from: #102d5c !important; }
+html:not(.theme-light) .to-indigo-100 { --tw-gradient-to: #0f2a55 !important; }
