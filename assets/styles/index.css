@@ -390,7 +390,7 @@ html:not(.theme-light) .to-indigo-100 {
 /* Cards/panels: ensure light text on any light backgrounds */
 :not(.theme-light) .rounded-lg,
 :not(.theme-light) .rounded-xl {
-  color: #e5e7eb;
+  color: #0055ff;
 }
 
 /* Subtle reveal animation */

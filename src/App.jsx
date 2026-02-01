@@ -8,8 +8,9 @@ import StudentProfile from './pages/student/Profile'
 import StudentEvent from './pages/student/Events'
 import StudentApplications from './pages/student/Applications'
 import StudentStats from './pages/student/Stats'
-import StudentCompanies from './pages/student/Companies'
+import StudentCompanies from './pages/student/companies'
 import StudentEvents from './pages/student/Events'
+import StudentAchievements from './pages/student/Achievements'
 import PODashboard from './pages/po/Dashboard'
 import POEvents from './pages/po/Events'
 
@@ -31,6 +32,7 @@ function App() {
       <Route path="/student/applications" element={<StudentApplications />} />
       <Route path="/student/stats" element={<StudentStats />} />
       <Route path="/student/events" element={<StudentEvents />} />
+      <Route path="/student/achievements" element={<StudentAchievements />} />
 
       {/* PO Routes */}
       <Route path="/po" element={<Navigate to="/po/dashboard" replace />} />

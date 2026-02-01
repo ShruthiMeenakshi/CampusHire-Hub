@@ -26,7 +26,7 @@ const Sidebar = ({ activePage = 'dashboard', collapsed = false, onToggle }) => {
     { icon: <Mail className="w-5 h-5" />, label: 'Messages', path: '/messages', key: 'messages' },
     { icon: <User className="w-5 h-5" />, label: 'Profile', path: '/student/profile', key: 'profile' },
     { icon: <Calendar className="w-5 h-5" />, label: 'Events', path: '/student/events', key: 'events' },
-    { icon: <Award className="w-5 h-5" />, label: 'Achievements', path: '/achievements', key: 'achievements' },
+    { icon: <Award className="w-5 h-5" />, label: 'Achievements', path: '/student/achievements', key: 'achievements' },
   ];
 
   const bottomItems = [
