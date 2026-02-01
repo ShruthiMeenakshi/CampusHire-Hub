@@ -125,9 +125,16 @@ section {
 .theme-light h4,
 .theme-light h5,
 .theme-light h6 {
+  color: #000000 !important;
+}
+html:not(.theme-light) h1,
+html:not(.theme-light) h2,
+html:not(.theme-light) h3,
+html:not(.theme-light) h4,
+html:not(.theme-light) h5,
+html:not(.theme-light) h6 {
   color: #ffffff !important;
 }
-
 /* Global light theme background and text */
 /* Apply light background/text when `.theme-light` is on body OR container root */
 .theme-light {

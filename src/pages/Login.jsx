@@ -34,71 +34,71 @@ const Login = () => {
   return (
     <div className="login-page">
       <div className="login-container">
-      <div className="login-section">
-        <h1 className="login-heading">Login</h1>
+        <div className="login-section">
+          <h1 className="login-heading">Login</h1>
 
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Email ID</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter your email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <label>Password</label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter your password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="checkbox-row">
-            <div className="remember-me">
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label>Email ID</label>
               <input
-                type="checkbox"
-                name="rememberMe"
-                checked={formData.rememberMe}
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                value={formData.email}
                 onChange={handleChange}
+                required
               />
-              <label>Remember me</label>
             </div>
 
-            <a href="#" className="forgot-password">
-              Forgot Password?
-            </a>
-          </div>
+            <div className="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="Enter your password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-          <button type="submit" className="login-btn">
-            Login
-          </button>
+            <div className="checkbox-row">
+              <div className="remember-me">
+                <input
+                  type="checkbox"
+                  name="rememberMe"
+                  checked={formData.rememberMe}
+                  onChange={handleChange}
+                />
+                <label>Remember me</label>
+              </div>
 
-          <div className="create-account">
-            New user?{" "}
-            <Link to="/signup" className="create-account-link">
-              Create an account
-            </Link>
-          </div>
-        </form>
-      </div>
+              <a href="#" className="forgot-password">
+                Forgot Password?
+              </a>
+            </div>
 
-      <div className="welcome-section">
-        <div className="logo-placeholder">
-          <img src={logo} alt="CampusHireHub Logo" />
+            <button type="submit" className="login-btn">
+              Login
+            </button>
+
+            <div className="create-account">
+              New user?{" "}
+              <Link to="/signup" className="create-account-link">
+                Create an account
+              </Link>
+            </div>
+          </form>
         </div>
 
-        <div className="welcome-greeting">Hello there,</div>
-        <div className="welcome-message">Welcome back</div>
-      </div>
+        <div className="welcome-section">
+          <div className="logo-placeholder">
+            <img src={logo} alt="CampusHireHub Logo" />
+          </div>
+
+          <div className="welcome-greeting">Hello there,</div>
+          <div className="welcome-message">Welcome back</div>
+        </div>
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import StudentLayout from '../../components/StudentLayout';
-import { 
-  CheckCircle, 
-  Briefcase, 
-  TrendingUp, 
-  Building, 
+import {
+  CheckCircle,
+  Briefcase,
+  TrendingUp,
+  Building,
   Download,
   ChevronRight,
   Calendar,
@@ -42,154 +42,154 @@ const Dashboard = () => {
       companies: { value: 42, trend: "+5" }
     },
     upcomingDrives: [
-      { 
+      {
         id: 1,
-        company: "Google", 
+        company: "Google",
         logoColor: "from-red-500 to-yellow-500",
-        role: "Software Engineer", 
-        date: "2024-03-15", 
-        ctc: "₹22L", 
+        role: "Software Engineer",
+        date: "2024-03-15",
+        ctc: "₹22L",
         status: "Upcoming",
         deadline: "2024-03-10"
       },
-      { 
+      {
         id: 2,
-        company: "Microsoft", 
+        company: "Microsoft",
         logoColor: "from-blue-500 to-green-500",
-        role: "Product Manager", 
-        date: "2024-03-18", 
-        ctc: "₹20L", 
+        role: "Product Manager",
+        date: "2024-03-18",
+        ctc: "₹20L",
         status: "Upcoming",
         deadline: "2024-03-12"
       },
-      { 
+      {
         id: 3,
-        company: "Amazon", 
+        company: "Amazon",
         logoColor: "from-orange-500 to-yellow-500",
-        role: "SDE 1", 
-        date: "2024-03-20", 
-        ctc: "₹19L", 
+        role: "SDE 1",
+        date: "2024-03-20",
+        ctc: "₹19L",
         status: "Open",
         deadline: "2024-03-15"
       },
-      { 
+      {
         id: 4,
-        company: "TCS", 
+        company: "TCS",
         logoColor: "from-blue-500 to-blue-700",
-        role: "System Analyst", 
-        date: "2024-03-22", 
-        ctc: "₹8L", 
+        role: "System Analyst",
+        date: "2024-03-22",
+        ctc: "₹8L",
         status: "Open",
         deadline: "2024-03-18"
       },
-      { 
+      {
         id: 5,
-        company: "Infosys", 
+        company: "Infosys",
         logoColor: "from-purple-500 to-pink-500",
-        role: "Business Analyst", 
-        date: "2024-03-25", 
-        ctc: "₹7.5L", 
+        role: "Business Analyst",
+        date: "2024-03-25",
+        ctc: "₹7.5L",
         status: "Open",
         deadline: "2024-03-20"
       }
     ],
     myApplications: [
-      { 
+      {
         id: 1,
-        company: "Amazon", 
+        company: "Amazon",
         logoColor: "from-orange-500 to-yellow-500",
-        role: "SDE Intern", 
-        stage: "Final Round", 
+        role: "SDE Intern",
+        stage: "Final Round",
         updated: "2 days ago",
         status: "in-progress"
       },
-      { 
+      {
         id: 2,
-        company: "Microsoft", 
+        company: "Microsoft",
         logoColor: "from-blue-500 to-green-500",
-        role: "Product Intern", 
-        stage: "Technical Round", 
+        role: "Product Intern",
+        stage: "Technical Round",
         updated: "1 week ago",
         status: "in-progress"
       },
-      { 
+      {
         id: 3,
-        company: "Google", 
+        company: "Google",
         logoColor: "from-red-500 to-yellow-500",
-        role: "STEP Intern", 
-        stage: "Applied", 
+        role: "STEP Intern",
+        stage: "Applied",
         updated: "2 weeks ago",
         status: "pending"
       },
-      { 
+      {
         id: 4,
-        company: "Goldman Sachs", 
+        company: "Goldman Sachs",
         logoColor: "from-blue-600 to-black",
-        role: "Analyst", 
-        stage: "Assessment", 
+        role: "Analyst",
+        stage: "Assessment",
         updated: "3 days ago",
         status: "in-progress"
       }
     ],
     announcements: [
-      { 
+      {
         id: 1,
-        title: "Resume Review Workshop", 
-        time: "2 hours ago", 
+        title: "Resume Review Workshop",
+        time: "2 hours ago",
         priority: "high",
         content: "Get your resume reviewed by industry experts. Sign up before Friday."
       },
-      { 
+      {
         id: 2,
-        title: "Mock Interview Schedule Released", 
-        time: "1 day ago", 
+        title: "Mock Interview Schedule Released",
+        time: "1 day ago",
         priority: "medium",
         content: "Mock interviews for final year students are now open for registration."
       },
-      { 
+      {
         id: 3,
-        title: "Placement Portal Maintenance", 
-        time: "2 days ago", 
+        title: "Placement Portal Maintenance",
+        time: "2 days ago",
         priority: "low",
         content: "The portal will be unavailable on Sunday, 12th March from 2 AM to 6 AM."
       },
-      { 
+      {
         id: 4,
-        title: "New Company Registrations", 
-        time: "3 days ago", 
+        title: "New Company Registrations",
+        time: "3 days ago",
         priority: "medium",
         content: "5 new companies have registered for campus placements this week."
       }
     ],
     events: [
-      { 
+      {
         id: 1,
-        title: "Google Info Session", 
-        date: "Mar 12, 2024", 
+        title: "Google Info Session",
+        date: "Mar 12, 2024",
         time: "3:00 PM",
         location: "Auditorium",
         type: "info-session"
       },
-      { 
+      {
         id: 2,
-        title: "Coding Contest: CodeRush", 
-        date: "Mar 15, 2024", 
+        title: "Coding Contest: CodeRush",
+        date: "Mar 15, 2024",
         time: "10:00 AM",
         location: "Computer Lab",
         type: "contest"
       },
-      { 
+      {
         id: 3,
-        title: "Group Discussion Practice", 
-        date: "Mar 18, 2024", 
+        title: "Group Discussion Practice",
+        date: "Mar 18, 2024",
         time: "2:00 PM",
         location: "Seminar Hall",
         type: "workshop"
       },
-      { 
+      {
         id: 4,
-        title: "Placement Orientation", 
-        date: "Mar 20, 2024", 
+        title: "Placement Orientation",
+        date: "Mar 20, 2024",
         time: "11:00 AM",
         location: "Main Hall",
         type: "orientation"
@@ -200,7 +200,7 @@ const Dashboard = () => {
   useEffect(() => {
     // Initialize charts
     initCharts();
-    
+
     // Cleanup
     return () => {
       if (trendChartInstance) trendChartInstance.destroy();
@@ -249,7 +249,7 @@ const Dashboard = () => {
           scales: {
             y: {
               beginAtZero: true,
-              grid: { 
+              grid: {
                 color: 'rgba(0,0,0,0.05)',
                 drawBorder: false
               },
@@ -261,7 +261,7 @@ const Dashboard = () => {
               }
             },
             x: {
-              grid: { 
+              grid: {
                 display: false
               },
               ticks: {
@@ -326,7 +326,7 @@ const Dashboard = () => {
               padding: 12,
               boxPadding: 6,
               callbacks: {
-                label: function(context) {
+                label: function (context) {
                   return `${context.dataset.label}: ${context.parsed.y}%`;
                 }
               }
@@ -336,7 +336,7 @@ const Dashboard = () => {
             y: {
               beginAtZero: true,
               max: 100,
-              grid: { 
+              grid: {
                 color: 'rgba(0,0,0,0.05)',
                 drawBorder: false
               },
@@ -345,13 +345,13 @@ const Dashboard = () => {
                 font: {
                   size: 11
                 },
-                callback: function(value) {
+                callback: function (value) {
                   return value + '%';
                 }
               }
             },
             x: {
-              grid: { 
+              grid: {
                 display: false
               },
               ticks: {
@@ -373,9 +373,9 @@ const Dashboard = () => {
       'Open': { color: 'bg-green-100 text-green-800', icon: <CheckCircle className="w-3 h-3" /> },
       'Closed': { color: 'bg-gray-100 text-gray-800', icon: null }
     };
-    
+
     const config = statusConfig[status] || statusConfig['Closed'];
-    
+
     return (
       <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium ${config.color}`}>
         {config.icon}
@@ -393,9 +393,9 @@ const Dashboard = () => {
       'Selected': { color: 'bg-emerald-100 text-emerald-800' },
       'Rejected': { color: 'bg-red-100 text-red-800' }
     };
-    
+
     const config = stageConfig[stage] || stageConfig['Applied'];
-    
+
     return (
       <span className={`px-2.5 py-1 rounded-full text-xs font-medium ${config.color}`}>
         {stage}
@@ -409,9 +409,9 @@ const Dashboard = () => {
       'medium': { color: 'bg-yellow-100 text-yellow-800', text: 'Update' },
       'low': { color: 'bg-gray-100 text-gray-800', text: 'Info' }
     };
-    
+
     const config = priorityConfig[priority] || priorityConfig['low'];
-    
+
     return (
       <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${config.color}`}>
         {config.text}
@@ -426,9 +426,9 @@ const Dashboard = () => {
       'workshop': { icon: <Briefcase className="w-5 h-5 text-purple-600" />, color: 'bg-purple-50' },
       'orientation': { icon: <Home className="w-5 h-5 text-green-600" />, color: 'bg-green-50' }
     };
-    
+
     const config = iconConfig[type] || iconConfig['info-session'];
-    
+
     return (
       <div className={`w-10 h-10 rounded-lg ${config.color} flex items-center justify-center`}>
         {config.icon}
@@ -537,7 +537,7 @@ const Dashboard = () => {
                 <h3 className="text-lg font-semibold text-gray-900">Placement Trend</h3>
                 <p className="text-sm text-gray-600">Monthly placement statistics for 2024</p>
               </div>
-              <button 
+              <button
                 onClick={handleDownloadChart}
                 className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-lg border border-gray-300"
               >
@@ -685,10 +685,9 @@ const Dashboard = () => {
                 <li key={announcement.id} className="pb-4 border-b border-gray-100 last:border-0 last:pb-0">
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
-                      <div className={`w-2 h-2 rounded-full ${
-                        announcement.priority === 'high' ? 'bg-red-500' :
-                        announcement.priority === 'medium' ? 'bg-yellow-500' : 'bg-gray-400'
-                      }`}></div>
+                      <div className={`w-2 h-2 rounded-full ${announcement.priority === 'high' ? 'bg-red-500' :
+                          announcement.priority === 'medium' ? 'bg-yellow-500' : 'bg-gray-400'
+                        }`}></div>
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between mb-1">

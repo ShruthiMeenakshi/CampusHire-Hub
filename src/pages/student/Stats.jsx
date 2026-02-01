@@ -5,34 +5,45 @@ import Chart from 'chart.js/auto';
 
 const Stats = () => {
   const statsChartRef = useRef(null);
+  const chartInstance = useRef(null);
 
   useEffect(() => {
-    // Initialize charts
+    // Initialize charts safely
     if (statsChartRef.current) {
-      const ctx = statsChartRef.current.getContext('2d');
-      new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-          labels: ['Selected', 'Under Process', 'Not Applied'],
-          datasets: [{
-            data: [65, 20, 15],
-            backgroundColor: [
-              '#10B981',
-              '#3B82F6',
-              '#9CA3AF'
-            ]
-          }]
-        },
-        options: {
-          cutout: '70%',
-          plugins: {
-            legend: {
-              position: 'bottom'
+      try {
+        const ctx = statsChartRef.current.getContext('2d');
+        chartInstance.current = new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: ['Selected', 'Under Process', 'Not Applied'],
+            datasets: [{
+              data: [65, 20, 15],
+              backgroundColor: [
+                '#10B981',
+                '#3B82F6',
+                '#9CA3AF'
+              ]
+            }]
+          },
+          options: {
+            cutout: '70%',
+            plugins: {
+              legend: {
+                position: 'bottom'
+              }
             }
           }
-        }
-      });
+        });
+      } catch (err) {
+        console.error('Failed to initialize stats chart:', err);
+      }
     }
+    return () => {
+      if (chartInstance.current) {
+        chartInstance.current.destroy();
+        chartInstance.current = null;
+      }
+    };
   }, []);
 
   return (
