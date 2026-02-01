@@ -11,7 +11,7 @@
     "lint": "eslint src --ext .js,.jsx"
   },
   "dependencies": {
-    "chart.js": "^4.4.1",
+    "chart.js": "^4.5.1",
     "lucide-react": "^0.563.0",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
