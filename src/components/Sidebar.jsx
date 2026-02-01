@@ -33,7 +33,7 @@ const Sidebar = ({ activePage = 'dashboard', collapsed = false, onToggle }) => {
   ];
 
   return (
-    <aside className="fixed left-0 top-0 h-full w-64 bg-white border-r border-gray-200 shadow-sm z-50">
+    <aside className="fixed left-0 top-0 h-full w-64 bg-white border-r border-gray-200 shadow-sm z-50 dark:bg-slate-900 dark:border-blue-800">
       <div className="p-6">
         {/* Logo */}
         <div className="flex items-center gap-3 mb-8">
@@ -54,8 +54,8 @@ const Sidebar = ({ activePage = 'dashboard', collapsed = false, onToggle }) => {
               to={item.path}
               className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
                 activePage === item.key
-                  ? 'bg-blue-50 text-blue-600 font-medium'
-                  : 'text-gray-600 hover:bg-gray-50'
+                  ? 'bg-blue-50 text-blue-600 font-medium dark:bg-blue-800 dark:text-white'
+                  : 'text-gray-600 hover:bg-gray-50 dark:text-blue-100 dark:hover:bg-blue-800'
               }`}
             >
               {item.icon}
@@ -64,12 +64,12 @@ const Sidebar = ({ activePage = 'dashboard', collapsed = false, onToggle }) => {
           ))}
           
           {/* Bottom Section */}
-          <div className="pt-4 mt-4 border-t border-gray-200">
+          <div className="pt-4 mt-4 border-t border-gray-200 dark:border-blue-800">
             {bottomItems.map((item) => (
               <Link
                 key={item.label}
                 to={item.path}
-                className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-50"
+                className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-50 dark:text-blue-100 dark:hover:bg-blue-800"
               >
                 {item.icon}
                 {item.label}

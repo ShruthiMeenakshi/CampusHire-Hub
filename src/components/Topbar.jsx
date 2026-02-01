@@ -79,13 +79,15 @@ const Topbar = ({
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
+
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
       setDarkMode(true);
       document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('theme-light');
     } else {
       setDarkMode(false);
       document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('theme-light');
     }
   }, []);
 
@@ -93,12 +95,14 @@ const Topbar = ({
   const toggleDarkMode = () => {
     const newDarkMode = !darkMode;
     setDarkMode(newDarkMode);
-    
+
     if (newDarkMode) {
       document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('theme-light');
       localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('theme-light');
       localStorage.setItem('theme', 'light');
     }
   };
@@ -140,7 +144,7 @@ const Topbar = ({
     <>
       <header className={`sticky top-0 z-50 transition-colors duration-200 ${
         darkMode 
-          ? 'bg-gray-900 border-gray-800 text-gray-100' 
+          ? 'bg-slate-950 border-blue-900 text-white' 
           : 'bg-white border-gray-200 text-gray-900'
       } border-b px-6 py-4 shadow-sm`}>
         <div className="flex items-center justify-between">
@@ -151,7 +155,7 @@ const Topbar = ({
               onClick={onMenuClick}
               className={`p-2 rounded-lg lg:hidden transition-colors ${
                 darkMode 
-                  ? 'hover:bg-gray-800 text-gray-400 hover:text-gray-300' 
+                  ? 'hover:bg-gray-800 text-white hover:text-gray-200' 
                   : 'hover:bg-gray-100 text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -161,7 +165,7 @@ const Topbar = ({
             {/* Page Title */}
             <div>
               <h2 className="text-lg font-semibold">{pageTitle}</h2>
-              <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+              <p className={`text-sm ${darkMode ? 'text-white' : 'text-gray-500'}`}>
                 Welcome back, {user.name.split(' ')[0]}! 👋
               </p>
             </div>
@@ -172,7 +176,7 @@ const Topbar = ({
             <div className="hidden md:flex items-center gap-4 flex-1 max-w-2xl mx-8">
               <form onSubmit={handleSearch} className="relative flex-1">
                 <Search className={`absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 ${
-                  darkMode ? 'text-gray-400' : 'text-gray-400'
+                  darkMode ? 'text-white' : 'text-gray-400'
                 }`} />
                 <input
                   type="search"
@@ -194,7 +198,7 @@ const Topbar = ({
               </form>
               <button className={`px-4 py-2.5 rounded-lg font-medium flex items-center gap-2 transition-colors ${
                 darkMode 
-                  ? 'bg-gray-800 hover:bg-gray-700 text-gray-300' 
+                  ? 'bg-gray-800 hover:bg-gray-700 text-white' 
                   : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
               }`}>
                 <Filter className="w-4 h-4" />
@@ -210,7 +214,7 @@ const Topbar = ({
               onClick={() => setShowSearchBar(!showSearchBar)}
               className={`p-2 rounded-lg md:hidden transition-colors ${
                 darkMode 
-                  ? 'hover:bg-gray-800 text-gray-400 hover:text-gray-300' 
+                  ? 'hover:bg-gray-800 text-white hover:text-gray-200' 
                   : 'hover:bg-gray-100 text-gray-600 hover:text-gray-900'
               }`}
             >
@@ -222,7 +226,7 @@ const Topbar = ({
               onClick={toggleDarkMode}
               className={`p-2 rounded-lg transition-colors group ${
                 darkMode 
-                  ? 'hover:bg-gray-800 text-yellow-400 hover:text-yellow-300' 
+                  ? 'hover:bg-gray-800 text-white hover:text-gray-200' 
                   : 'hover:bg-gray-100 text-gray-600 hover:text-gray-900'
               }`}
               title={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
@@ -240,7 +244,7 @@ const Topbar = ({
                 onClick={() => setShowNotifications(!showNotifications)}
                 className={`p-2 rounded-lg transition-colors relative ${
                   darkMode 
-                    ? 'hover:bg-gray-800 text-gray-400 hover:text-gray-300' 
+                    ? 'hover:bg-gray-800 text-white hover:text-gray-200' 
                     : 'hover:bg-gray-100 text-gray-600 hover:text-gray-900'
                 }`}
               >
@@ -362,16 +366,16 @@ const Topbar = ({
               >
                 <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${user.avatarColor}`}></div>
                 <div className="hidden md:block text-left">
-                  <p className={`text-sm font-medium ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>
+                  <p className={`text-sm font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                     {user.name.split(' ')[0]}
                   </p>
-                  <p className={`text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+                  <p className={`text-xs ${darkMode ? 'text-white' : 'text-gray-500'}`}>
                     {user.department}
                   </p>
                 </div>
                 <ChevronDown className={`w-4 h-4 transition-transform ${
                   showProfileMenu ? 'rotate-180' : ''
-                } ${darkMode ? 'text-gray-400' : 'text-gray-500'}`} />
+                } ${darkMode ? 'text-white' : 'text-gray-500'}`} />
               </button>
 
               {/* Profile Dropdown */}

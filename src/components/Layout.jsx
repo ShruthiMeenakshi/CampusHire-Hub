@@ -8,10 +8,11 @@ const Layout = ({
   pageTitle, 
   showSearch = true,
   showSidebar = true,
-  showTopbar = true 
+  showTopbar = true,
+  themeClass = ''
 }) => {
   return (
-    <div className="min-h-screen bg-gray-50 font-inter">
+    <div className={`min-h-screen bg-gray-50 dark:bg-slate-950 dark:text-white font-inter ${themeClass}`}>
       {showSidebar && <Sidebar activePage={activePage} />}
       
       <div className={showSidebar ? 'md:ml-64' : ''}>

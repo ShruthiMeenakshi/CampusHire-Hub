@@ -9,6 +9,7 @@ const StudentLayout = ({ children, activePage, pageTitle, showSearch = true }) =
       showSearch={showSearch}
       showSidebar={true}
       showTopbar={true}
+      themeClass="theme-light"
     >
       {children}
     </Layout>
