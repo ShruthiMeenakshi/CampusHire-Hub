@@ -73,7 +73,7 @@ const Sidebar = ({ activePage = 'dashboard', collapsed = false, onToggle }) => {
           {/* Bottom Section */}
           <div className="pt-4 mt-4 border-t border-gray-200 dark:border-blue-800">
             <Link
-              to="/settings"
+              to="/student/settings"
               className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-50 dark:text-blue-100 dark:hover:bg-blue-800"
             >
               <Settings className="w-5 h-5" />
