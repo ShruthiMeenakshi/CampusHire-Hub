@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
+import Home from "./pages/Home";
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import StudentDashboard from './pages/student/Dashboard'
@@ -14,7 +15,7 @@ function App() {
     <Routes>
 
       {/* Auth Routes */}
-      <Route path="/" element={<Navigate to="/login" replace />} />
+      <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
 
