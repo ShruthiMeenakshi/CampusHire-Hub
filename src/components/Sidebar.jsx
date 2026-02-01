@@ -15,12 +15,12 @@ import {
   Award
 } from 'lucide-react';
 
-const Sidebar = ({ activePage = 'drives' }) => {
+const Sidebar = ({ activePage = 'dashboard', collapsed = false, onToggle }) => {
   const menuItems = [
     { icon: <Home className="w-5 h-5" />, label: 'Dashboard', path: '/student/dashboard', key: 'dashboard' },
     { icon: <Briefcase className="w-5 h-5" />, label: 'Drives', path: '/student/drives', key: 'drives' },
     { icon: <FileText className="w-5 h-5" />, label: 'Applications', path: '/student/applications', key: 'applications' },
-    { icon: <Building className="w-5 h-5" />, label: 'Companies', path: '/companies', key: 'companies' },
+      { icon: <Building className="w-5 h-5" />, label: 'Companies', path: '/student/companies', key: 'companies' },
     { icon: <Mail className="w-5 h-5" />, label: 'Messages', path: '/messages', key: 'messages' },
     { icon: <User className="w-5 h-5" />, label: 'Profile', path: '/student/profile', key: 'profile' },
     { icon: <Calendar className="w-5 h-5" />, label: 'Events', path: '/events', key: 'events' },

@@ -29,47 +29,33 @@ import {
 
 const Profile = () => {
   const [profile, setProfile] = useState({
-    fullName: 'Priya Sharma',
-    studentId: 'VCET2023CSE123',
-    email: 'priya@vcet.edu',
-    phone: '9876543210',
-    department: 'CSE',
-    program: 'B.Tech',
-    year: '4',
-    cgpa: '8.45',
-    skills: ['Java', 'Python', 'React', 'SQL', 'Data Structures', 'Algorithms'],
-    resumeUrl: 'https://drive.google.com/file/d/...',
-    portfolioUrl: 'https://priya.dev',
-    linkedinUrl: 'https://www.linkedin.com/in/priyasharma',
-    githubUrl: 'https://github.com/priyasharma',
-    leetcodeUrl: 'https://leetcode.com/priyasharma',
-    about: 'Passionate software developer with interest in web technologies and problem-solving.',
-    dob: '2002-05-15',
-    gender: 'Female',
-    address: '123 Main Street, Madurai, Tamil Nadu'
+    fullName: '',
+    studentId: '',
+    email: '',
+    phone: '',
+    department: '',
+    program: '',
+    year: '',
+    cgpa: '',
+    skills: [],
+    resumeUrl: '',
+    portfolioUrl: '',
+    linkedinUrl: '',
+    githubUrl: '',
+    leetcodeUrl: '',
+    about: '',
+    dob: '',
+    gender: '',
+    address: ''
   });
 
-  const [education, setEducation] = useState([
-    { id: 1, degree: 'B.Tech Computer Science', institution: 'Velammal College of Engineering', year: '2020-2024', cgpa: '8.45' },
-    { id: 2, degree: 'Higher Secondary', institution: 'Velammal Matriculation School', year: '2018-2020', percentage: '92%' },
-    { id: 3, degree: 'Secondary School', institution: 'Velammal Matriculation School', year: '2018', percentage: '95%' }
-  ]);
+  const [education, setEducation] = useState([]);
 
-  const [projects, setProjects] = useState([
-    { id: 1, title: 'E-commerce Platform', description: 'Full-stack e-commerce website with React and Node.js', tech: ['React', 'Node.js', 'MongoDB'], link: 'https://github.com/priyasharma/ecommerce' },
-    { id: 2, title: 'Campus Placement Portal', description: 'Placement management system for college', tech: ['React', 'Express', 'PostgreSQL'], link: 'https://github.com/priyasharma/placement-portal' }
-  ]);
+  const [projects, setProjects] = useState([]);
 
-  const [certifications, setCertifications] = useState([
-    { id: 1, name: 'AWS Cloud Practitioner', issuer: 'Amazon Web Services', date: '2023-06-15' },
-    { id: 2, name: 'Google Cloud Fundamentals', issuer: 'Google', date: '2023-03-20' },
-    { id: 3, name: 'React Developer Certification', issuer: 'Meta', date: '2022-12-10' }
-  ]);
+  const [certifications, setCertifications] = useState([]);
 
-  const [achievements, setAchievements] = useState([
-    { id: 1, title: 'Hackathon Winner', description: '1st Prize in CodeFest 2023', date: '2023-10-15' },
-    { id: 2, title: 'Best Project Award', description: 'Department level project competition', date: '2023-05-20' }
-  ]);
+  const [achievements, setAchievements] = useState([]);
 
   const [skillsInput, setSkillsInput] = useState('');
   const [isEditing, setIsEditing] = useState(false);
@@ -85,6 +71,14 @@ const Profile = () => {
     const savedProfile = localStorage.getItem('studentProfile');
     if (savedProfile) {
       setProfile(JSON.parse(savedProfile));
+    }
+    // Pull email captured during login and apply to profile
+    const authEmail = localStorage.getItem('ch_email');
+    if (authEmail) {
+      setProfile(prev => ({
+        ...prev,
+        email: authEmail
+      }));
     }
   }, []);
 

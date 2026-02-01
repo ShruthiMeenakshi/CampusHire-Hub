@@ -7,6 +7,7 @@ import StudentDrives from './pages/student/Drives'
 import StudentProfile from './pages/student/Profile'
 import StudentApplications from './pages/student/Applications'
 import StudentStats from './pages/student/Stats'
+import StudentCompanies from './pages/student/Companies'
 import PODashboard from './pages/po/Dashboard'
 import POEvents from './pages/po/Events'
 
@@ -24,6 +25,7 @@ function App() {
       <Route path="/student/dashboard" element={<StudentDashboard />} />
       <Route path="/student/drives" element={<StudentDrives />} />
       <Route path="/student/profile" element={<StudentProfile />} />
+      <Route path="/student/companies" element={<StudentCompanies />} />
       <Route path="/student/applications" element={<StudentApplications />} />
       <Route path="/student/stats" element={<StudentStats />} />
 
