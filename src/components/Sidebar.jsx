@@ -34,7 +34,7 @@ const Sidebar = ({ activePage = 'dashboard', collapsed = false, onToggle }) => {
     { icon: <FileText className="w-5 h-5" />, label: 'Applications', path: '/student/applications', key: 'applications' },
     { icon: <BarChart3 className="w-5 h-5" />, label: 'Performance', path: '/student/stats', key: 'stats' },
     { icon: <Building className="w-5 h-5" />, label: 'Companies', path: '/student/companies', key: 'companies' },
-    { icon: <Mail className="w-5 h-5" />, label: 'Messages', path: '/messages', key: 'messages' },
+    { icon: <Mail className="w-5 h-5" />, label: 'Messages', path: '/student/messages', key: 'messages' },
     { icon: <User className="w-5 h-5" />, label: 'Profile', path: '/student/profile', key: 'profile' },
     { icon: <Calendar className="w-5 h-5" />, label: 'Events', path: '/student/events', key: 'events' },
     { icon: <Award className="w-5 h-5" />, label: 'Achievements', path: '/student/achievements', key: 'achievements' },
