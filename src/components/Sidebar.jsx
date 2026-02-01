@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { List, X, House, Briefcase, FileText, BarChart3, SignOut } from 'phosphor-react'
+import { List, X, House, Briefcase, FileText, ChartLineUp, SignOut } from 'phosphor-react'
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -9,7 +9,7 @@ export default function Sidebar() {
     { label: 'Dashboard', href: '/student/dashboard', icon: House },
     { label: 'Drives', href: '/student/drives', icon: Briefcase },
     { label: 'My Applications', href: '/student/applications', icon: FileText },
-    { label: 'Statistics', href: '/student/stats', icon: BarChart3 },
+    { label: 'Statistics', href: '/student/stats', icon: ChartLineUp },
   ]
 
   return (

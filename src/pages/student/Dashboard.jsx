@@ -1,6 +1,7 @@
 import Sidebar from '@/components/Sidebar'
 import Topbar from '@/components/Topbar'
-import { CheckCircle, Briefcase, ChartLineUp, Buildings, TrendingUp, Download, Eye } from 'phosphor-react'
+import { CheckCircle, Briefcase, Users, TrendUp } from 'phosphor-react'
+
 import { Link } from 'react-router-dom'
 import { useEffect, useRef } from 'react'
 import Chart from 'chart.js/auto'
