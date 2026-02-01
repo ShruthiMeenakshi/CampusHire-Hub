@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Home,
   Briefcase,
@@ -16,12 +17,12 @@ import {
 
 const Sidebar = ({ activePage = 'drives' }) => {
   const menuItems = [
-    { icon: <Home className="w-5 h-5" />, label: 'Dashboard', path: '/dashboard', key: 'dashboard' },
-    { icon: <Briefcase className="w-5 h-5" />, label: 'Drives', path: '/drives', key: 'drives' },
-    { icon: <FileText className="w-5 h-5" />, label: 'Applications', path: '/applications', key: 'applications' },
+    { icon: <Home className="w-5 h-5" />, label: 'Dashboard', path: '/student/dashboard', key: 'dashboard' },
+    { icon: <Briefcase className="w-5 h-5" />, label: 'Drives', path: '/student/drives', key: 'drives' },
+    { icon: <FileText className="w-5 h-5" />, label: 'Applications', path: '/student/applications', key: 'applications' },
     { icon: <Building className="w-5 h-5" />, label: 'Companies', path: '/companies', key: 'companies' },
     { icon: <Mail className="w-5 h-5" />, label: 'Messages', path: '/messages', key: 'messages' },
-    { icon: <User className="w-5 h-5" />, label: 'Profile', path: '/Profile', key: 'Profile' },
+    { icon: <User className="w-5 h-5" />, label: 'Profile', path: '/student/profile', key: 'profile' },
     { icon: <Calendar className="w-5 h-5" />, label: 'Events', path: '/events', key: 'events' },
     { icon: <Award className="w-5 h-5" />, label: 'Achievements', path: '/achievements', key: 'achievements' },
   ];
@@ -48,9 +49,9 @@ const Sidebar = ({ activePage = 'drives' }) => {
         {/* Navigation */}
         <nav className="space-y-2">
           {menuItems.map((item) => (
-            <a
+            <Link
               key={item.key}
-              href={item.path}
+              to={item.path}
               className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
                 activePage === item.key
                   ? 'bg-blue-50 text-blue-600 font-medium'
@@ -59,20 +60,20 @@ const Sidebar = ({ activePage = 'drives' }) => {
             >
               {item.icon}
               {item.label}
-            </a>
+            </Link>
           ))}
           
           {/* Bottom Section */}
           <div className="pt-4 mt-4 border-t border-gray-200">
             {bottomItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
-                href={item.path}
+                to={item.path}
                 className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-50"
               >
                 {item.icon}
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
         </nav>
