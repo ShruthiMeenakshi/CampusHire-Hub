@@ -1,0 +1,100 @@
+{
+  "info": {
+    "name": "CampusHire API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "campushire-collection-001"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" },
+    { "key": "jwt", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Auth/Login",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "url": "{{baseUrl}}/api/auth/login",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"admin@example.com\",\n  \"password\": \"Admin@123\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Student/Get Profile",
+      "request": {
+        "method": "GET",
+        "header": [ { "key": "Authorization", "value": "Bearer {{jwt}}" } ],
+        "url": "{{baseUrl}}/api/student/profile"
+      }
+    },
+    {
+      "name": "Student/Update Profile",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{jwt}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": "{{baseUrl}}/api/student/profile",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"batch\": \"2026\",\n  \"cgpa\": 8.5,\n  \"backlogs\": 0,\n  \"skills\": \"Java, Spring\",\n  \"internships\": \"Acme\",\n  \"projects\": \"Portal\",\n  \"eligible\": true,\n  \"placed\": true,\n  \"placedCompany\": \"TechCorp\",\n  \"placedPackageLPA\": 10.5\n}"
+        }
+      }
+    },
+    {
+      "name": "Events/List",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/events"
+      }
+    },
+    {
+      "name": "Events/Upcoming",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/events/upcoming"
+      }
+    },
+    {
+      "name": "Events/Create",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{jwt}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": "{{baseUrl}}/api/events",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"companyName\": \"TechCorp\",\n  \"role\": \"SWE\",\n  \"packageLPA\": 10.0,\n  \"eventDate\": \"2026-02-15\",\n  \"details\": \"On-campus drive\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Analytics/Summary",
+      "request": {
+        "method": "GET",
+        "header": [ { "key": "Authorization", "value": "Bearer {{jwt}}" } ],
+        "url": "{{baseUrl}}/api/analytics/summary"
+      }
+    },
+    {
+      "name": "Analytics/Placements",
+      "request": {
+        "method": "GET",
+        "header": [ { "key": "Authorization", "value": "Bearer {{jwt}}" } ],
+        "url": "{{baseUrl}}/api/analytics/placements"
+      }
+    },
+    {
+      "name": "Companies/List",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/companies"
+      }
+    }
+  ]
+}
