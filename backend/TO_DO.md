@@ -22,6 +22,7 @@ Tech Stack: Spring Boot · PostgreSQL · Docker · JWT Security
 
 ---
 
+
 ## 🔐 Phase 2: Authentication & Authorization (RBAC)
 - [x] Design `User` + `Role` (Student / Faculty / Placement Head)
 - [x] Implement JWT-based authentication
@@ -140,7 +141,17 @@ Tech Stack: Spring Boot · PostgreSQL · Docker · JWT Security
 - [ ] Monitoring & logs
 
 ---
+## 🔐 Phase 2: Authentication & Authorization (RBAC)
+- [x] Design `User` + `Role` (Student / Faculty / Placement Head)
+- [x] Implement JWT-based authentication
+- [x] Password encryption (BCrypt)
+- [x] Role-Based Access Control (method + URL level)
+- [x] Login API
+- [ ] Logout / Token invalidation (optional)
+- [x] Secure APIs with JWT filter
+- [x] Access control per role
 
+---
 ## ✔️ Completion Criteria
 - All APIs secured and tested
 - Docker setup runs without errors
