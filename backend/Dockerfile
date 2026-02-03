@@ -1,9 +1,15 @@
-FROM eclipse-temurin:21-jre
-
+## Build stage
+FROM maven:3.9.9-eclipse-temurin-21 AS build
 WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn -q -DskipTests package
 
-COPY target/*.jar app.jar
-
+## Runtime stage
+FROM eclipse-temurin:21-jre
+WORKDIR /app
+ENV JAVA_OPTS=""
+RUN apt-get update -y && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+COPY --from=build /app/target/campushire-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
-
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
