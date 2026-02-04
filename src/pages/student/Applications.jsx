@@ -1,5 +1,4 @@
-import Sidebar from '@/components/Sidebar'
-import Topbar from '@/components/Topbar'
+import StudentLayout from '@/components/StudentLayout'
 
 export default function StudentApplications() {
   const applications = [
@@ -22,12 +21,9 @@ export default function StudentApplications() {
   }
 
   return (
-    <div className="flex h-screen bg-gray-50">
-      <Sidebar />
-      <div className="flex-1 flex flex-col overflow-hidden">
-        <Topbar />
-        <main className="flex-1 overflow-auto p-4 md:p-8">
-          <div className="max-w-6xl mx-auto">
+    <StudentLayout activePage="applications" pageTitle="My Applications">
+      <div className="p-4 md:p-8">
+        <div className="max-w-6xl mx-auto">
             {/* Header */}
             <div className="flex items-center justify-between mb-8">
               <div>
@@ -63,9 +59,8 @@ export default function StudentApplications() {
                 </div>
               ))}
             </div>
-          </div>
-        </main>
+        </div>
       </div>
-    </div>
+    </StudentLayout>
   )
 }

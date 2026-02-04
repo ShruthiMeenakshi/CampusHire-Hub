@@ -1,6 +1,6 @@
 import POSidebar from '@/components/POSidebar'
 import Topbar from '@/components/Topbar'
-import { CheckCircle, Briefcase, Users, TrendingUp } from 'phosphor-react'
+import { CheckCircle, Briefcase, Users, TrendUp } from 'phosphor-react'
 import { useRef, useEffect } from 'react'
 import Chart from 'chart.js/auto'
 
@@ -41,7 +41,7 @@ export default function PODashboard() {
     { icon: CheckCircle, label: 'Total Placements', value: 245, color: 'from-green-400 to-green-600' },
     { icon: Briefcase, label: 'Active Drives', value: 12, color: 'from-blue-400 to-blue-600' },
     { icon: Users, label: 'Registered Students', value: 580, color: 'from-purple-400 to-purple-600' },
-    { icon: TrendingUp, label: 'Average CTC', value: '₹28L', color: 'from-orange-400 to-orange-600' },
+    { icon: TrendUp, label: 'Average CTC', value: '₹28L', color: 'from-orange-400 to-orange-600' },
   ]
 
   return (

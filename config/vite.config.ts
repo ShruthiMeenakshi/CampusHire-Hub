@@ -19,9 +19,8 @@ export default defineConfig({
     open: true,
   },
   build: {
-    outDir: path.resolve(root, 'backend/src/main/resources/static'),
+    outDir: 'dist',
     sourcemap: false,
-    emptyOutDir: true,
   },
   css: {
     postcss: postcssConfig,

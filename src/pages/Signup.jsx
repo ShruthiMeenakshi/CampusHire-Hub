@@ -35,12 +35,12 @@ export default function Signup() {
       {/* Left Section - Signup Form */}
       <div className="w-full md:w-1/2 flex items-center justify-center px-6 py-12 sm:px-12 lg:px-20">
         <div className="w-full max-w-md">
-          <h1 className="text-3xl font-bold text-gray-900 mb-8">Create Account</h1>
+          <h1 className="text-3xl font-bold text-black mb-8">Create Account</h1>
 
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Full Name */}
             <div>
-              <label htmlFor="fullname" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="fullname" className="block text-sm font-medium text-black mb-2">
                 Full Name
               </label>
               <input
@@ -57,7 +57,7 @@ export default function Signup() {
 
             {/* Email */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="email" className="block text-sm font-medium text-black mb-2">
                 Email ID
               </label>
               <input
@@ -74,7 +74,7 @@ export default function Signup() {
 
             {/* Role Selection */}
             <div>
-              <label htmlFor="role" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="role" className="block text-sm font-medium text-black mb-2">
                 Register As
               </label>
               <select
@@ -82,20 +82,18 @@ export default function Signup() {
                 name="role"
                 value={formData.role}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition text-gray-500"
                 required
               >
-                <option value="">Select role</option>
-                <option value="student">Student</option>
-                <option value="placement officer">Placement Officer</option>
-                <option value="placement coordinator">Placement Coordinator</option>
-                <option value="admin">Admin</option>
+                <option className="text-black" value="">Select role</option>
+                <option className="text-black" value="student">Student</option>
+                <option className="text-black" value="staff">Staff</option>
               </select>
             </div>
 
             {/* Password */}
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="password" className="block text-sm font-medium text-black mb-2">
                 Password
               </label>
               <div className="relative">
@@ -121,7 +119,7 @@ export default function Signup() {
 
             {/* Confirm Password */}
             <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="confirmPassword" className="block text-sm font-medium text-black mb-2">
                 Confirm Password
               </label>
               <div className="relative">
@@ -154,7 +152,7 @@ export default function Signup() {
             </button>
 
             {/* Login Link */}
-            <p className="text-center text-gray-600 text-sm">
+            <p className="text-center text-black text-sm">
               Already have an account?{' '}
               <Link to="/login" className="text-blue-600 hover:text-blue-700 font-medium">
                 Login
@@ -168,7 +166,7 @@ export default function Signup() {
       <div className="hidden md:flex w-1/2 bg-gradient-to-br from-emerald-600 to-emerald-800 items-center justify-center px-12">
         <div className="text-white text-center">
           <div className="mb-8 flex justify-center">
-            <img src="/media/vcet-logo.png" alt="VCET Logo" className="h-32 w-32 rounded-full shadow-lg" />
+            <img src="/media/vcetLogo.jpg" alt="VCET Logo" className="h-32 w-32 rounded-full shadow-lg" />
           </div>
           <h2 className="text-4xl font-bold mb-4">Join us,</h2>
           <p className="text-xl text-emerald-100">CampusHireHub</p>

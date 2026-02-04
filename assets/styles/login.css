@@ -1,10 +1,10 @@
-* {
+.login-page * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+.login-page {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
@@ -73,6 +73,7 @@ body {
     border-radius: 8px;
     font-size: 14px;
     transition: all 0.3s ease;
+    color:black;
 }
 
 .form-group input[type="email"]:focus,
