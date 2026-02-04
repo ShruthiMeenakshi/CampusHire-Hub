@@ -67,13 +67,38 @@ const Topbar = ({
     }
   ]);
 
-  const [user] = useState({
+  const defaultUser = {
     name: 'Student',
     department: 'Student',
     year: '4th Year',
     cgpa: '8.45',
     avatarColor: 'from-blue-500 to-blue-600'
+  };
+
+  const [user, setUser] = useState(() => {
+    try {
+      const raw = localStorage.getItem('user');
+      return raw ? JSON.parse(raw) : defaultUser;
+    } catch (e) {
+      return defaultUser;
+    }
   });
+
+  // Update user when other tabs/windows or code update localStorage
+  useEffect(() => {
+    const onStorage = (e) => {
+      if (e.key === 'user') {
+        try {
+          setUser(e.newValue ? JSON.parse(e.newValue) : defaultUser);
+        } catch (err) {
+          setUser(defaultUser);
+        }
+      }
+    };
+
+    window.addEventListener('storage', onStorage);
+    return () => window.removeEventListener('storage', onStorage);
+  }, []);
 
   // Initialize dark mode from localStorage or system preference
   useEffect(() => {

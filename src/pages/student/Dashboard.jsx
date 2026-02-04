@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import StudentLayout from '../../components/StudentLayout';
 import {
   CheckCircle,
@@ -32,6 +32,31 @@ const Dashboard = () => {
   const deptChartRef = useRef(null);
   let trendChartInstance = null;
   let deptChartInstance = null;
+
+  const defaultUser = { name: 'Student' };
+  const [user, setUser] = useState(() => {
+    try {
+      const raw = localStorage.getItem('user');
+      return raw ? JSON.parse(raw) : defaultUser;
+    } catch (e) {
+      return defaultUser;
+    }
+  });
+
+  useEffect(() => {
+    const onStorage = (e) => {
+      if (e.key === 'user') {
+        try {
+          setUser(e.newValue ? JSON.parse(e.newValue) : defaultUser);
+        } catch (err) {
+          setUser(defaultUser);
+        }
+      }
+    };
+
+    window.addEventListener('storage', onStorage);
+    return () => window.removeEventListener('storage', onStorage);
+  }, []);
 
   // Sample data
   const dashboardData = {
@@ -450,7 +475,7 @@ const Dashboard = () => {
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900 mb-2">Welcome back, John! 👋</h1>
+              <h1 className="text-2xl font-bold text-gray-900 mb-2">Welcome back, {user?.name ? user.name.split(' ')[0] : 'Student'}! 👋</h1>
               <p className="text-gray-600">
                 Track your placement progress, upcoming drives, and application status.
                 <span className="font-medium text-blue-600"> 3 new opportunities</span> have been added this week.
