@@ -1,0 +1,93 @@
+package com.vcet.campushire.service;
+
+import com.vcet.campushire.dto.CompanyHRDTO;
+import com.vcet.campushire.exception.CompanyNotFoundException;
+import com.vcet.campushire.mapper.CompanyHRMapper;
+import com.vcet.campushire.model.Company;
+import com.vcet.campushire.model.CompanyHR;
+import com.vcet.campushire.repository.CompanyHRRepository;
+import com.vcet.campushire.repository.CompanyRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+public class CompanyHRService {
+
+    private final CompanyHRRepository hrRepository;
+    private final CompanyRepository companyRepository;
+
+    public CompanyHRService(CompanyHRRepository hrRepository,
+                            CompanyRepository companyRepository) {
+        this.hrRepository = hrRepository;
+        this.companyRepository = companyRepository;
+    }
+
+    @Transactional
+    public CompanyHRDTO addHR(Long companyId, CompanyHRDTO dto) {
+
+        Company company = companyRepository.findById(companyId)
+                .orElseThrow(() -> new CompanyNotFoundException("Company not found"));
+
+        if (dto.isPrimaryHr()) {
+            hrRepository.unsetPrimaryHR(companyId);
+        }
+
+        CompanyHR hr = new CompanyHR();
+        hr.setHrName(dto.getHrName());
+        hr.setEmail(dto.getEmail());
+        hr.setPhone(dto.getPhone());
+        hr.setDesignation(dto.getDesignation());
+        hr.setLinkedinUrl(dto.getLinkedinUrl());
+        hr.setPrimaryHr(dto.isPrimaryHr());
+        hr.setActive(true);
+        hr.setCompany(company);
+
+        return CompanyHRMapper.toDTO(hrRepository.save(hr));
+    }
+
+    public CompanyHRDTO updateHR(Long hrId, CompanyHRDTO dto) {
+
+        CompanyHR hr = hrRepository.findById(hrId)
+                .orElseThrow(() -> new CompanyNotFoundException("HR not found"));
+
+        hr.setHrName(dto.getHrName());
+        hr.setEmail(dto.getEmail());
+        hr.setPhone(dto.getPhone());
+        hr.setDesignation(dto.getDesignation());
+        hr.setLinkedinUrl(dto.getLinkedinUrl());
+
+        return CompanyHRMapper.toDTO(hrRepository.save(hr));
+    }
+
+    @Transactional
+    public void markPrimaryHR(Long hrId) {
+
+        CompanyHR hr = hrRepository.findById(hrId)
+                .orElseThrow(() -> new CompanyNotFoundException("HR not found"));
+
+        hrRepository.unsetPrimaryHR(hr.getCompany().getId());
+        hr.setPrimaryHr(true);
+
+        hrRepository.save(hr);
+    }
+
+    public void deactivateHR(Long hrId) {
+
+        CompanyHR hr = hrRepository.findById(hrId)
+                .orElseThrow(() -> new CompanyNotFoundException("HR not found"));
+
+        hr.setActive(false);
+        hrRepository.save(hr);
+    }
+
+    public List<CompanyHRDTO> getHRs(Long companyId) {
+
+        return hrRepository.findByCompanyId(companyId)
+                .stream()
+                .map(CompanyHRMapper::toDTO)
+                .collect(Collectors.toList());
+    }
+}
