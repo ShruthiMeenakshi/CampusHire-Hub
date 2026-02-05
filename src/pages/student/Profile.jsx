@@ -188,7 +188,7 @@ const Profile = () => {
             name="fullName"
             value={profile.fullName}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+            className="w-full px-4 py-3 border border-gray-300 text-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
             placeholder="e.g., Priya Sharma"
             required
           />
@@ -203,7 +203,7 @@ const Profile = () => {
             name="studentId"
             value={profile.studentId}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+            className="w-full px-4 py-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
             placeholder="e.g., VCET2023CSE123"
             required
           />
@@ -220,7 +220,7 @@ const Profile = () => {
               name="email"
               value={profile.email}
               onChange={handleInputChange}
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+              className="w-full pl-10 pr-4 py-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
               placeholder="e.g., priya@vcet.edu"
               required
             />
@@ -239,7 +239,7 @@ const Profile = () => {
               value={profile.phone}
               onChange={handleInputChange}
               pattern="[0-9]{10}"
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+              className="w-full pl-10 pr-4 py-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
               placeholder="e.g., 9876543210"
               required
             />
@@ -255,7 +255,7 @@ const Profile = () => {
             name="dob"
             value={profile.dob}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+            className="w-full px-4 py-3 border border-gray-300 text-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
           />
         </div>
 
@@ -267,7 +267,7 @@ const Profile = () => {
             name="gender"
             value={profile.gender}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+            className="w-full px-4 py-3 border border-gray-300 text-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
           >
             <option value="">Select gender</option>
             <option value="Male">Male</option>
@@ -285,7 +285,7 @@ const Profile = () => {
             value={profile.address}
             onChange={handleInputChange}
             rows="3"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+            className="w-full px-4 py-3 border border-gray-300 text-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
             placeholder="Enter your complete address"
           />
         </div>
@@ -300,7 +300,7 @@ const Profile = () => {
           value={profile.about}
           onChange={handleInputChange}
           rows="4"
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+          className="w-full px-4 py-3 border border-gray-300 text-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
           placeholder="Tell us about your interests, career goals, etc."
         />
       </div>
@@ -336,7 +336,7 @@ const Profile = () => {
             name="program"
             value={profile.program}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+            className="w-full px-4 py-3 border border-gray-300 text-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
             required
           >
             <option value="">Select program</option>
@@ -354,7 +354,7 @@ const Profile = () => {
             name="year"
             value={profile.year}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+            className="w-full px-4 py-3 border border-gray-300 text-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
             required
           >
             <option value="">Select year</option>
@@ -378,7 +378,7 @@ const Profile = () => {
               min="0"
               max="10"
               step="0.01"
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+              className="w-full pl-10 pr-4 py-3 border border-gray-300 text-black rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
               placeholder="e.g., 8.45"
               required
             />
@@ -410,7 +410,7 @@ const Profile = () => {
                     );
                     setEducation(updated);
                   }}
-                  className="px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="px-3 py-2 border border-gray-300 text-black rounded focus:ring-2 focus:ring-blue-500 outline-none"
                   placeholder="Degree"
                 />
                 <input
@@ -422,7 +422,7 @@ const Profile = () => {
                     );
                     setEducation(updated);
                   }}
-                  className="px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="px-3 py-2 border border-gray-300 rounded text-black focus:ring-2 focus:ring-blue-500 outline-none"
                   placeholder="Institution"
                 />
                 <input
@@ -434,7 +434,7 @@ const Profile = () => {
                     );
                     setEducation(updated);
                   }}
-                  className="px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="px-3 py-2 border border-gray-300 rounded text-black focus:ring-2 focus:ring-blue-500 outline-none"
                   placeholder="Year"
                 />
                 <input
@@ -446,7 +446,7 @@ const Profile = () => {
                     );
                     setEducation(updated);
                   }}
-                  className="px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="px-3 py-2 border border-gray-300 rounded text-black focus:ring-2 focus:ring-blue-500 outline-none"
                   placeholder="CGPA/Percentage"
                 />
               </div>
@@ -512,7 +512,7 @@ const Profile = () => {
             type="text"
             value={skillsInput}
             onChange={handleSkillsChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+            className="w-full px-4 py-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
             placeholder="Add skills separated by commas (e.g., Java, Python, React)"
           />
           <p className="text-sm text-gray-500 mt-1">Press comma or enter to add multiple skills</p>
@@ -560,7 +560,7 @@ const Profile = () => {
                     );
                     setProjects(updated);
                   }}
-                  className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border text-black border-gray-300 rounded focus:ring-2 focus:ring-blue-500 outline-none"
                   placeholder="Project Title"
                 />
                 <textarea
@@ -572,7 +572,7 @@ const Profile = () => {
                     setProjects(updated);
                   }}
                   rows="2"
-                  className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border text-black border-gray-300 rounded focus:ring-2 focus:ring-blue-500 outline-none"
                   placeholder="Project Description"
                 />
                 <input
@@ -584,7 +584,7 @@ const Profile = () => {
                     );
                     setProjects(updated);
                   }}
-                  className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border text-black border-gray-300 rounded focus:ring-2 focus:ring-blue-500 outline-none"
                   placeholder="Project URL"
                 />
               </div>
@@ -638,7 +638,7 @@ const Profile = () => {
               name="resumeUrl"
               value={profile.resumeUrl}
               onChange={handleInputChange}
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+              className="w-full pl-10 pr-4 py-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
               placeholder="e.g., https://drive.google.com/..."
             />
           </div>
